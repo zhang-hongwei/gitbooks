@@ -73,6 +73,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="pages/js/history.html" />
+    
     
 
     </head>
@@ -107,6 +109,58 @@
             
                     
                     Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="pages/js/history.html">
+            
+                <a href="pages/js/history.html">
+            
+                    
+                    History
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="pages/js/object.html">
+            
+                <a href="pages/js/object.html">
+            
+                    
+                    Object
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="pages/js/function.html">
+            
+                <a href="pages/js/function.html">
+            
+                    
+                    Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="pages/js/types.html">
+            
+                <a href="pages/js/types.html">
+            
+                    
+                    Types
             
                 </a>
             
@@ -159,75 +213,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#xFEFF;## Getting Started</p>
-<p>In the root directory of the project...</p>
-<ol>
-<li>Install node modules <code>yarn install</code> or <code>npm install</code>.</li>
-<li>Start development server <code>yarn start</code> or <code>npm start</code>.</li>
-</ol>
-<h2 id="next-steps">Next Steps</h2>
-<h3 id="sample-data">Sample Data</h3>
-<p>Replace the sample data stored in /server/sampleData.js.
-Replace the default images stored in /src/images.</p>
-<h3 id="adding-a-new-page">Adding a New Page</h3>
-<ol>
-<li>Create a folder in <code>/src/components</code> with your react components.</li>
-<li>Add a route for your page to <code>/src/App.js</code>.</li>
-<li>Add a button to the navigation bar in <code>/src/components/NavBar/index.js</code>.</li>
-</ol>
-<h3 id="deployment">Deployment</h3>
-<p>If you selected Azure App Service when creating your project, follow these steps:</p>
-<ol>
-<li>Press <code>Ctrl + Shift + P</code> in Windows/Linux or <code>Shift &#x21E7; + Command &#x2318; + P</code> in Mac and type/select <code>Web Template Studio: Deploy App</code> to start deploying your app.</li>
-<li>After your project is built, click on &quot;server&quot; in the pop up on the top middle section of your screen, and then click &quot;Deploy&quot; on the window pop up.</li>
-<li>Once the deployment is done, click &quot;Browse website&quot; in the notification window on the lower right corner to check out your newly deployed app.</li>
-</ol>
-<p>If you did not select Azure App Service and want to create a new Azure App Service web app, follow these steps:</p>
-<ol>
-<li>Press <code>Ctrl + Shift + P</code> in Windows/Linux or <code>Shift &#x21E7; + Command &#x2318; + P</code> in Mac and type/select <code>Azure App Service: Create New Web App...</code> to create a new web app.<ul>
-<li>Select your subscription</li>
-<li>Enter your web app name</li>
-<li>Select Linux as your OS</li>
-<li>Select Node.js 10.14 for a Node/Express application, Python 3.7 for a Flask application</li>
-</ul>
-</li>
-<li>Once the creation is done, click &quot;Deploy&quot; in the notification window on the lower right corner.<ul>
-<li>Click &quot;Browse&quot; on the top middle section of your screen and select the server folder within your project</li>
-<li>Click &quot;Yes&quot; in the notification window on the lower right corner (build prompt)</li>
-<li>Click &quot;Deploy&quot; on the window pop up</li>
-<li>Click &quot;Yes&quot; in the notification window on the lower right corner again</li>
-</ul>
-</li>
-<li>Once the deployment is done, click &quot;Browse website&quot; in the notification window on the lower right corner to check out your newly deployed app.</li>
-</ol>
-<p>Consider adding authentication and securing back-end API&apos;s by following <a href="https://docs.microsoft.com/en-us/azure/app-service/overview-security" target="_blank">Azure App Service Security</a>.</p>
-<p>Full documentation for deployment to Azure App Service can be found here: <a href="https://github.com/Microsoft/WebTemplateStudio/blob/dev/docs/deployment.md" target="_blank">Deployment Docs</a>.</p>
-<h2 id="file-structure">File Structure</h2>
-<p>The front-end is based on <a href="https://github.com/facebook/create-react-app" target="_blank">create-react-app</a>.</p>
-<p>The back-end is based on <a href="https://expressjs.com/en/starter/generator.html" target="_blank">Express Generator</a>.</p>
-<p>The front-end is served on <a href="http://localhost:3000/" target="_blank">http://localhost:3000/</a> and the back-end on <a href="http://localhost:3001/" target="_blank">http://localhost:3001/</a>.</p>
-<pre><code>.
-&#x251C;&#x2500;&#x2500; src - React front-end
-&#x2502; &#x251C;&#x2500;&#x2500; components - React components for each page
-&#x2502; &#x251C;&#x2500;&#x2500; App.jsx - React routing
-&#x2502; &#x2514;&#x2500;&#x2500; index.jsx - React root component
-&#x251C;&#x2500;&#x2500; server/ - Express server that provides API routes and serves front-end
-&#x2502; &#x251C;&#x2500;&#x2500; routes/ - Handles API calls for routes
-&#x2502; &#x251C;&#x2500;&#x2500; app.js - Adds middleware to the express server
-&#x2502; &#x251C;&#x2500;&#x2500; sampleData.js - Contains all sample text data for generate pages
-&#x2502; &#x251C;&#x2500;&#x2500; constants.js - Defines the constants for the endpoints and port
-&#x2502; &#x2514;&#x2500;&#x2500; server.js - Configures Port and HTTP Server
-&#x2514;&#x2500;&#x2500; README.md
-</code></pre><h2 id="additional-documentation">Additional Documentation</h2>
-<ul>
-<li>React - <a href="https://reactjs.org/" target="_blank">https://reactjs.org/</a></li>
-<li><p>React Router - <a href="https://reacttraining.com/react-router/" target="_blank">https://reacttraining.com/react-router/</a></p>
-</li>
-<li><p>Bootstrap CSS - <a href="https://getbootstrap.com/" target="_blank">https://getbootstrap.com/</a></p>
-</li>
-<li>Express - <a href="https://expressjs.com/" target="_blank">https://expressjs.com/</a></li>
-</ul>
-<p>  This project was created using <a href="https://github.com/Microsoft/WebTemplateStudio" target="_blank">Microsoft Web Template Studio</a>.</p>
+                                <h1 id="introduction">Introduction</h1>
 
                                 
                                 </section>
@@ -256,6 +242,10 @@ Replace the default images stored in /src/images.</p>
             
                 
                 
+                <a href="pages/js/history.html" class="navigation navigation-next navigation-unique" aria-label="Next page: History">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
             
         
     </div>
@@ -263,7 +253,7 @@ Replace the default images stored in /src/images.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"dir":"ltr"},"config":{"plugins":["chapter-fold","back-to-top-button","code","splitter"],"root":"../","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"README.md","mtime":"2020-02-04T05:33:36.179Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-02-05T11:58:03.194Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"History","level":"1.2","depth":1,"path":"pages/js/history.md","ref":"./pages/js/history.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","back-to-top-button","code","splitter"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2020-02-04T05:37:25.709Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-02-05T12:08:42.065Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
