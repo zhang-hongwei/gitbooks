@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>react-router · GitBook</title>
+        <title>history · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -73,10 +73,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="./" />
+    <link rel="next" href="../history/createBrowserHistory.html" />
     
     
-    <link rel="prev" href="../../" />
+    <link rel="prev" href="router.html" />
     
 
     </head>
@@ -118,7 +118,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="router.html">
+        <li class="chapter " data-level="1.2" data-path="router.html">
             
                 <a href="router.html">
             
@@ -132,7 +132,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="./">
+        <li class="chapter active" data-level="1.2.1" data-path="./">
             
                 <a href="./">
             
@@ -250,7 +250,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >react-router</a>
+        <a href="../.." >history</a>
     </h1>
 </div>
 
@@ -265,71 +265,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="react-&#x8DEF;&#x7531;">React &#x8DEF;&#x7531;</h1>
-<h2 id="routercontext">RouterContext</h2>
-<h2 id="router">Router</h2>
-<h2 id="static-computerootmatch">static computeRootMatch</h2>
-<pre><code class="lang-js"><span class="hljs-keyword">static</span> computeRootMatch(pathname) {
-    <span class="hljs-keyword">return</span> { path: <span class="hljs-string">&quot;/&quot;</span>, url: <span class="hljs-string">&quot;/&quot;</span>, params: {}, isExact: pathname === <span class="hljs-string">&quot;/&quot;</span> };
-  }
-</code></pre>
-<h2 id="constructor">constructor</h2>
-<pre><code class="lang-js">
- <span class="hljs-keyword">constructor</span>(props) {
-    <span class="hljs-keyword">super</span>(props);
-
-    <span class="hljs-keyword">this</span>.state = {
-      location: props.history.location
-    };
-
-    <span class="hljs-comment">// This is a bit of a hack. We have to start listening for location</span>
-    <span class="hljs-comment">// changes here in the constructor in case there are any &lt;Redirect&gt;s</span>
-    <span class="hljs-comment">// on the initial render. If there are, they will replace/push when</span>
-    <span class="hljs-comment">// they mount and since cDM fires in children before parents, we may</span>
-    <span class="hljs-comment">// get a new location before the &lt;Router&gt; is mounted.</span>
-    <span class="hljs-keyword">this</span>._isMounted = <span class="hljs-literal">false</span>;
-    <span class="hljs-keyword">this</span>._pendingLocation = <span class="hljs-literal">null</span>;
-
-    <span class="hljs-keyword">if</span> (!props.staticContext) {
-      <span class="hljs-keyword">this</span>.unlisten = props.history.listen(location =&gt; {
-        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._isMounted) {
-          <span class="hljs-keyword">this</span>.setState({ location });
-        } <span class="hljs-keyword">else</span> {
-          <span class="hljs-keyword">this</span>._pendingLocation = location;
-        }
-      });
-    }
-  }
-</code></pre>
-<h2 id="componentdidmount">componentDidMount</h2>
-<pre><code class="lang-js">  componentDidMount() {
-    <span class="hljs-keyword">this</span>._isMounted = <span class="hljs-literal">true</span>;
-
-    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._pendingLocation) {
-      <span class="hljs-keyword">this</span>.setState({ location: <span class="hljs-keyword">this</span>._pendingLocation });
-    }
-  }
-</code></pre>
-<h2 id="componentwillunmount">componentWillUnmount</h2>
-<pre><code class="lang-js">  componentWillUnmount() {
-    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.unlisten) <span class="hljs-keyword">this</span>.unlisten();
-  }
-</code></pre>
-<h2 id="render">render</h2>
-<pre><code class="lang-js">  render() {
-    <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">RouterContext.Provider</span>
-        <span class="hljs-attr">children</span>=<span class="hljs-string">{this.props.children</span> || <span class="hljs-attr">null</span>}
-        <span class="hljs-attr">value</span>=<span class="hljs-string">{{</span>
-          <span class="hljs-attr">history:</span> <span class="hljs-attr">this.props.history</span>,
-          <span class="hljs-attr">location:</span> <span class="hljs-attr">this.state.location</span>,
-          <span class="hljs-attr">match:</span> <span class="hljs-attr">Router.computeRootMatch</span>(<span class="hljs-attr">this.state.location.pathname</span>),
-          <span class="hljs-attr">staticContext:</span> <span class="hljs-attr">this.props.staticContext</span>
-        }}
-      /&gt;</span>
-    );
-  }
-</span></code></pre>
+                                <h1 id="react-router">react-router</h1>
 
                                 
                                 </section>
@@ -357,12 +293,12 @@
 
             
                 
-                <a href="../../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="router.html" class="navigation navigation-prev " aria-label="Previous page: react-router">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="./" class="navigation navigation-next " aria-label="Next page: history">
+                <a href="../history/createBrowserHistory.html" class="navigation navigation-next " aria-label="Next page: createBrowserHistory">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -373,7 +309,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"react-router","level":"1.2","depth":1,"next":{"title":"history","level":"1.2.1","depth":2,"path":"pages/reactRouter/index.md","ref":"./pages/reactRouter/index.md","articles":[{"title":"createBrowserHistory","level":"1.2.1.1","depth":3,"path":"pages/history/createBrowserHistory.md","ref":"./pages/history/createBrowserHistory.md","articles":[]}]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","back-to-top-button","code","splitter","livereload"],"root":"./","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"pages/reactRouter/router.md","mtime":"2020-02-09T13:22:16.158Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-02-11T05:52:28.318Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"history","level":"1.2.1","depth":2,"next":{"title":"createBrowserHistory","level":"1.2.1.1","depth":3,"path":"pages/history/createBrowserHistory.md","ref":"./pages/history/createBrowserHistory.md","articles":[]},"previous":{"title":"react-router","level":"1.2","depth":1,"path":"pages/reactRouter/router.md","ref":"./pages/reactRouter/router.md","articles":[{"title":"history","level":"1.2.1","depth":2,"path":"pages/reactRouter/index.md","ref":"./pages/reactRouter/index.md","articles":[{"title":"createBrowserHistory","level":"1.2.1.1","depth":3,"path":"pages/history/createBrowserHistory.md","ref":"./pages/history/createBrowserHistory.md","articles":[]}]}]},"dir":"ltr"},"config":{"plugins":["chapter-fold","back-to-top-button","code","splitter","livereload"],"root":"./","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"pages/reactRouter/index.md","mtime":"2020-02-11T05:55:47.642Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-02-11T05:52:28.318Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
