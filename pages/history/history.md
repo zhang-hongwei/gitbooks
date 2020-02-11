@@ -8,7 +8,8 @@
 
 ### History.length
 
-返回一个整数，该整数表示会话历史中元素的数目，包括当前加载的页。例如，在一个新的选项卡加载的一个页面中，这个属性返回 1
+返回一个整数，该整数表示会话历史中元素的数目，包括当前加载的页。例如，在一个新的选项卡加载的一个页面中，这个属性返回 1,
+返回浏览器历史列表中的 URL 数量。
 
 ### History.state
 
@@ -41,7 +42,7 @@ window.onhashchange = function(e) {
     console.log(e);
 };
 //or
-window.addEventListener('hashchange', function(e) {
+window.addEventListener("hashchange", function(e) {
     console.log(e);
 });
 ```
@@ -49,7 +50,7 @@ window.addEventListener('hashchange', function(e) {
 ## 监听通过 history 来改变 url 的事件
 
 ```js
-window.addEventListener('popstate', function(e) {
+window.addEventListener("popstate", function(e) {
     console.log(e);
 });
 ```
@@ -72,13 +73,13 @@ let _wr = function(type) {
         return rv;
     };
 };
-history.pushState = _wr('pushState');
-history.replaceState = _wr('replaceState');
+history.pushState = _wr("pushState");
+history.replaceState = _wr("replaceState");
 
 (function(history) {
     var pushState = history.pushState;
     history.pushState = function(state) {
-        if (typeof history.onpushstate == 'function') {
+        if (typeof history.onpushstate == "function") {
             history.onpushstate({ state: state });
         }
         // ... whatever else you want to do
@@ -87,3 +88,9 @@ history.replaceState = _wr('replaceState');
     };
 })(window.history);
 ```
+
+当活动历史记录条目更改时，将触发 popstate 事件。如果被激活的历史记录条目是通过对 history.pushState（）的调用创建的，或者受到对 history.replaceState（）的调用的影响，popstate 事件的 state 属性包含历史条目的状态对象的副本。
+
+需要注意的是调用 history.pushState()或 history.replaceState()不会触发 popstate 事件。只有在做出浏览器动作时，才会触发该事件，如用户点击浏览器的回退按钮（或者在 Javascript 代码中调用 history.back()或者 history.forward()方法）
+
+不同的浏览器在加载页面时处理 popstate 事件的形式存在差异。页面加载时 Chrome 和 Safari 通常会触发(emit )popstate 事件，但 Firefox 则不会。
