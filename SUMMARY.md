@@ -4,9 +4,9 @@
 
 -   [react-router](./pages/reactRouter/router.md)
 
-    -   [history](./pages/reactRouter/index.md)
+    -   [history](./pages/reactRouter/history/index.md)
 
-        -   [createBrowserHistory](./pages/history/createBrowserHistory.md)
+        -   [createBrowserHistory](./pages/reactRouter/history/createBrowserHistory.md)
 
 -   [js](./pages/js/index.md)
 
