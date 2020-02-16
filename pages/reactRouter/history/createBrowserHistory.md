@@ -304,3 +304,5 @@ function createBrowserHistory(props = {}) {
     return history;
 }
 ```
+
+返回一个history对象，包含一系列用来操控浏览器会话历史的方法，
