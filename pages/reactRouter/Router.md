@@ -26,6 +26,7 @@ class Router extends React.Component {
         this._pendingLocation = null;
 
         if (!props.staticContext) {
+            // 监听location的变化,并返回一个取消监听的函数
             this.unlisten = props.history.listen(location => {
                 if (this._isMounted) {
                     this.setState({ location });
@@ -68,4 +69,5 @@ class Router extends React.Component {
 }
 ```
 
-Router 组件返回一个 ReactContext.Provider,并将 history,location,match,staticContext,作为 value 传给子组件,children 则是作为 React 的 children 属性
+1. Router 组件返回一个 ReactContext.Provider,并将 history,location,match,staticContext,作为 value 传给子组件,children 则是作为 React 的 children 属性
+2. 在 constructor 中监听 location 的变化,当 location 发生变化,就更新状态,并返回一个取消监听的函数

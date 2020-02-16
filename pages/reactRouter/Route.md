@@ -106,3 +106,7 @@ if (props.match) {
     }
 }
 ```
+
+1. 组件接收 path,component/render 属性,
+2. RouterContext.Consumer 提供的 context 包含 location,history 等属性
+3. 使用组件的 path 和 context 的 location 进行匹配,匹配到就 React.createElement(component, props)/render(props),否则返回 null

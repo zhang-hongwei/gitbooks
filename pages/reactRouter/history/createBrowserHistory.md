@@ -278,6 +278,7 @@ function createBrowserHistory(props = {}) {
     }
 
     function listen(listener) {
+        // 监听location的变化,并且返回一个取消监听的函数
         const unlisten = transitionManager.appendListener(listener);
         checkDOMListeners(1);
 
@@ -305,4 +306,4 @@ function createBrowserHistory(props = {}) {
 }
 ```
 
-返回一个history对象，包含一系列用来操控浏览器会话历史的方法，
+返回一个 history 对象，包含一系列用来操控浏览器会话历史的方法，
