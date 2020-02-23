@@ -69,27 +69,5 @@ class Router extends React.Component {
 }
 ```
 
-<<<<<<< HEAD
-## render
-
-```js
-  render() {
-    return (
-      <RouterContext.Provider
-        children={this.props.children || null}
-        value={{
-          history: this.props.history,
-          location: this.state.location,
-          match: Router.computeRootMatch(this.state.location.pathname),
-          staticContext: this.props.staticContext
-        }}
-      />
-    );
-  }
-```
-
-<!-- Router  -->
-=======
 1. Router 组件返回一个 ReactContext.Provider,并将 history,location,match,staticContext,作为 value 传给子组件,children 则是作为 React 的 children 属性
 2. 在 constructor 中监听 location 的变化,当 location 发生变化,就更新状态,并返回一个取消监听的函数
->>>>>>> 3e2080573d1cb86e4014df05081a4f47babc701f
