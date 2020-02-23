@@ -4,66 +4,72 @@
 
 ## Router
 
-## static computeRootMatch
-
 ```js
-static computeRootMatch(pathname) {
-    return { path: "/", url: "/", params: {}, isExact: pathname === "/" };
-  }
-```
+class Router extends React.Component {
+    static computeRootMatch(pathname) {
+        return { path: "/", url: "/", params: {}, isExact: pathname === "/" };
+    }
 
-## constructor
+    constructor(props) {
+        super(props);
 
-```js
+        this.state = {
+            location: props.history.location
+        };
 
- constructor(props) {
-    super(props);
+        // This is a bit of a hack. We have to start listening for location
+        // changes here in the constructor in case there are any <Redirect>s
+        // on the initial render. If there are, they will replace/push when
+        // they mount and since cDM fires in children before parents, we may
+        // get a new location before the <Router> is mounted.
+        this._isMounted = false;
+        this._pendingLocation = null;
 
-    this.state = {
-      location: props.history.location
-    };
-
-    // This is a bit of a hack. We have to start listening for location
-    // changes here in the constructor in case there are any <Redirect>s
-    // on the initial render. If there are, they will replace/push when
-    // they mount and since cDM fires in children before parents, we may
-    // get a new location before the <Router> is mounted.
-    this._isMounted = false;
-    this._pendingLocation = null;
-
-    if (!props.staticContext) {
-      this.unlisten = props.history.listen(location => {
-        if (this._isMounted) {
-          this.setState({ location });
-        } else {
-          this._pendingLocation = location;
+        if (!props.staticContext) {
+            // 监听location的变化,并返回一个取消监听的函数
+            this.unlisten = props.history.listen(location => {
+                if (this._isMounted) {
+                    this.setState({ location });
+                } else {
+                    this._pendingLocation = location;
+                }
+            });
         }
-      });
     }
-  }
 
-```
+    componentDidMount() {
+        this._isMounted = true;
 
-## componentDidMount
+        if (this._pendingLocation) {
+            this.setState({ location: this._pendingLocation });
+        }
 
-```js
-  componentDidMount() {
-    this._isMounted = true;
-
-    if (this._pendingLocation) {
-      this.setState({ location: this._pendingLocation });
+        console.log("===> this.propsqqq", this.props);
     }
-  }
+
+    componentWillUnmount() {
+        if (this.unlisten) this.unlisten();
+    }
+
+    render() {
+        return (
+            <RouterContext.Provider
+                children={this.props.children || null}
+                value={{
+                    history: this.props.history,
+                    location: this.state.location,
+                    match: Router.computeRootMatch(
+                        this.state.location.pathname
+                    ),
+                    staticContext: this.props.staticContext
+                }}
+            />
+        );
+    }
+}
 ```
 
-## componentWillUnmount
-
-```js
-  componentWillUnmount() {
-    if (this.unlisten) this.unlisten();
-  }
-```
-
+<<<<<<< HEAD
 ## render
 
 ```js
@@ -83,3 +89,7 @@ static computeRootMatch(pathname) {
 ```
 
 <!-- Router  -->
+=======
+1. Router 组件返回一个 ReactContext.Provider,并将 history,location,match,staticContext,作为 value 传给子组件,children 则是作为 React 的 children 属性
+2. 在 constructor 中监听 location 的变化,当 location 发生变化,就更新状态,并返回一个取消监听的函数
+>>>>>>> 3e2080573d1cb86e4014df05081a4f47babc701f

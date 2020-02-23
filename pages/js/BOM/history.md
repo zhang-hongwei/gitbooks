@@ -33,9 +33,9 @@
 
 ### History.pushState()
 
-#### 参数
+按指定的名称和 URL（如果提供该参数）将数据 push 进会话历史栈，数据被 DOM 进行不透明处理；你可以指定任何可以被序列化的 javascript 对象。
 
-按指定的名称和 URL（如果提供该参数）将数据 push 进会话历史栈，数据被 DOM 进行不透明处理；你可以指定任何可以被序列化的 javascript 对象。注意到 Firefox 现在忽略了这个 title 参数
+#### 参数
 
 -   状态对象 — 状态对象 state 是一个 JavaScript 对象，通过 pushState () 创建新的历史记录条目。无论什么时候用户导航到新的状态，popstate 事件就会被触发，且该事件的 state 属性包含该历史记录条目状态对象的副本。  
     状态对象可以是能被序列化的任何东西。原因在于 Firefox 将状态对象保存在用户的磁盘上，以便在用户重启浏览器时使用，我们规定了状态对象在序列化表示后有 640k 的大小限制。如果你给 pushState() 方法传了一个序列化后大于 640k 的状态对象，该方法会抛出异常。如果你需要更大的空间，建议使用 sessionStorage 以及 localStorage.
@@ -64,7 +64,7 @@ window.onhashchange = function(e) {
     console.log(e);
 };
 //or
-window.addEventListener('hashchange', function(e) {
+window.addEventListener("hashchange", function(e) {
     console.log(e);
 });
 ```
@@ -72,7 +72,7 @@ window.addEventListener('hashchange', function(e) {
 ## 监听通过 history 来改变 url 的事件
 
 ```js
-window.addEventListener('popstate', function(e) {
+window.addEventListener("popstate", function(e) {
     console.log(e);
 });
 ```
@@ -95,13 +95,13 @@ let _wr = function(type) {
         return rv;
     };
 };
-history.pushState = _wr('pushState');
-history.replaceState = _wr('replaceState');
+history.pushState = _wr("pushState");
+history.replaceState = _wr("replaceState");
 
 (function(history) {
     var pushState = history.pushState;
     history.pushState = function(state) {
-        if (typeof history.onpushstate == 'function') {
+        if (typeof history.onpushstate == "function") {
             history.onpushstate({ state: state });
         }
         // ... whatever else you want to do
