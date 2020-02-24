@@ -1,35 +1,13 @@
 # applyMiddleware
 
 ```js
-import compose from "./compose";
-
-/**
- * Creates a store enhancer that applies middleware to the dispatch method
- * of the Redux store. This is handy for a variety of tasks, such as expressing
- * asynchronous actions in a concise manner, or logging every action payload.
- *
- * See `redux-thunk` package as an example of the Redux middleware.
- *
- * Because middleware is potentially asynchronous, this should be the first
- * store enhancer in the composition chain.
- *
- * Note that each middleware will be given the `dispatch` and `getState` functions
- * as named arguments.
- *
- * @param middlewares The middleware chain to be applied.
- * @returns A store enhancer applying the middleware.
- *
- * @template Ext Dispatch signature added by a middleware.
- * @template S The type of the state supported by a middleware.
- */
-
 function applyMiddleware(...middlewares) {
     return createStore => (reducer, ...args) => {
         const store = createStore(reducer, ...args);
         let dispatch = () => {
             throw new Error(
-                "Dispatching while constructing your middleware is not allowed. " +
-                    "Other middleware would not be applied to this dispatch."
+                'Dispatching while constructing your middleware is not allowed. ' +
+                    'Other middleware would not be applied to this dispatch.'
             );
         };
 
@@ -44,6 +22,42 @@ function applyMiddleware(...middlewares) {
             ...store,
             dispatch
         };
+    };
+}
+```
+
+## compose
+
+```js
+function compose(...funcs) {
+    if (funcs.length === 0) {
+        // infer the argument type so it is usable in inference down the line
+        return arg => arg;
+    }
+
+    if (funcs.length === 1) {
+        return funcs[0];
+    }
+
+    return funcs.reduce((a, b) => {
+        // debugger;
+        return (...args) => a(b(...args));
+    });
+}
+```
+
+## Middleware
+
+```js
+function logger({ getState }) {
+    return next => action => {
+        console.log('will dispatch', action);
+        // Call the next dispatch method in the middleware chain.
+        const returnValue = next(action);
+        console.log('state after dispatch', getState());
+        // This will likely be the action itself, unless
+        // a middleware further in chain changed it.
+        return returnValue;
     };
 }
 ```
