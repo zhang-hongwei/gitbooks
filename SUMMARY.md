@@ -31,5 +31,7 @@
 
 -   [js](./pages/js/index.md)
     -   [BOM 对象](./pages/js/BOM/index.md)
+
         -   [history 对象](./pages/js/BOM/history.md)
+
     -   [事件模型](./pages/js/event.md)
