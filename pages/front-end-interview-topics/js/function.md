@@ -32,3 +32,10 @@ let curriedAdd = curry(add, 5);
 
 console.log(curriedAdd(3));
 ```
+
+## 柯里化函数两端的参数具体是什么东西
+
+
+## Bind、Call、Apply的区别
+
+## sum(2, 3)实现sum(2)(3)的效果
