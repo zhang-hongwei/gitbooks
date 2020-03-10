@@ -1,10 +1,8 @@
 # Provider
 
 ```js
-import React, { useMemo, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { ReactReduxContext } from './Context';
-import Subscription from '../utils/Subscription';
+import { ReactReduxContext } from "./Context";
+import Subscription from "../utils/Subscription";
 
 function Provider({ store, context, children }) {
     const contextValue = useMemo(() => {
@@ -35,16 +33,8 @@ function Provider({ store, context, children }) {
 
     return <Context.Provider value={contextValue}>{children}</Context.Provider>;
 }
-
-Provider.propTypes = {
-    store: PropTypes.shape({
-        subscribe: PropTypes.func.isRequired,
-        dispatch: PropTypes.func.isRequired,
-        getState: PropTypes.func.isRequired
-    }),
-    context: PropTypes.object,
-    children: PropTypes.any
-};
-
-export default Provider;
 ```
+
+1. Provider 组件，返回一个 reactContext，为下面所有的组件提供 context
+
+2. Provider 的 value，contextValue 是依赖 store 的变化计算得来，当store变化的时候，创建Subscription的实例=>subscription,
