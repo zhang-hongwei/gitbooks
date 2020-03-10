@@ -32,3 +32,15 @@ let curriedAdd = curry(add, 5);
 
 console.log(curriedAdd(3));
 ```
+
+## 柯里化函数两端的参数具体是什么东西
+
+## Bind、Call、Apply 的区别
+
+## sum(2, 3)实现 sum(2)(3)的效果
+
+## 介绍纯函数
+
+## call、apply、bind 的区别
+
+## 防抖和节流的区别
