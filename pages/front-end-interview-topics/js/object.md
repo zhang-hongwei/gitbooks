@@ -30,3 +30,5 @@ function deepClone(obj) {
     return cloneObj;
 }
 ```
+
+## 两个对象如何比较
