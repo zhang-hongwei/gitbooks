@@ -8,17 +8,9 @@
     <body>
         <button id="btn">click</button>
         <script>
-            console.log(history);
-            btn.onclick = function() {
-                let stateObj = {
-                    foo: "bar"
-                };
-                history.pushState(
-                    stateObj,
-                    "page 2",
-                    window.location.href + "/a"
-                );
-            };
+            let ary = [1, 2, 3];
+
+            console.log(ary);
         </script>
     </body>
 </html>
