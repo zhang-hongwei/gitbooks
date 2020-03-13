@@ -1,13 +1,11 @@
 # 异步发展
 
-回调函数
-事件监听
-发布/订阅
-Promise 对象
+## 解决异步的及四种方法
 
-## 图例
-
-![异步](../imgs/async.webp)
+-   回调函数
+-   事件监听
+-   发布/订阅
+-   Promise 对象
 
 ---
 
@@ -17,17 +15,83 @@ Promise 对象
 -   控制反转信任缺失，错误处理无法保证
     回调函数的调用逻辑是在请求函数内部，我们无法保证回调函数一定会被正确调用。回调本身没有错误处理机制，需要额外设计。可能出现的错误包括：回调返回错误结果、吞掉可能出现的错误与异常、回调没有执行、回调被多次执行、回调被同步执行等等。
 
+```js
+// 使用回调函数的方式依次读取三个文件
+fs.readFile("./a.txt", "utf-8", (err, data) => {
+    console.log(data);
+    fs.readFile("./b.txt", "utf-8", (err, data) => {
+        console.log(data);
+        fs.readFile("./c.txt", "utf-8", (err, data) => {
+            console.log(data);
+        });
+    });
+});
+```
+
 ---
 
 ## 2. 发布订阅
 
 ## 3. Promise
 
+```js
+function readFile(url) {
+    return new Promise((resolve, reject) => {
+        fs.readFile(url, "utf-8", (err, data) => {
+            resolve(data);
+        });
+    });
+}
+
+readFile("./a.txt").then(res => {
+    console.log("res===>", res);
+    readFile("./b.txt").then(res => {
+        console.log("res===>", res);
+        readFile("./c.txt").then(res => {
+            console.log("res===>", res);
+        });
+    });
+});
+```
+
 ---
 
 ## 4. Generator
 
 执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。
+
+```js
+// Promise + Generator
+function readFile(url) {
+    return new Promise((resolve, reject) => {
+        fs.readFile(url, "utf-8", (err, data) => {
+            resolve(data);
+        });
+    });
+}
+function* generator() {
+    const res1 = yield readFile("./a.txt");
+    console.log("res===>", res1);
+    const res2 = yield readFile("./b.txt");
+    console.log("res===>", res2);
+    const res3 = yield readFile("./c.txt");
+    console.log("res===>", res3);
+}
+
+let g = generator();
+g.next().value.then(res => {
+    console.log("res===>", res);
+    g.next().value.then(res => {
+        console.log("res===>", res);
+        g.next().value.then(res => {
+            console.log("res===>", res);
+        });
+    });
+});
+
+// 使用co， 可以自动执行Generator
+co(generator);
+```
 
 ### co
 
@@ -91,3 +155,23 @@ function co(gen) {
     4. 在参数不符合要求的情况下（参数非 Thunk 函数和 Promise 对象），将 Promise 对象的状态改为 rejected，从而终止执行。
 
 ## 5. async/await
+
+```js
+function readFile(url) {
+    return new Promise((resolve, reject) => {
+        fs.readFile(url, "utf-8", (err, data) => {
+            resolve(data);
+        });
+    });
+}
+async function read() {
+    const res1 = await readFile("./a.txt");
+    console.log("res===>", res1);
+    const res2 = await readFile("./b.txt");
+    console.log("res===>", res2);
+    const res3 = await readFile("./c.txt");
+    console.log("res===>", res3);
+}
+
+read();
+```
