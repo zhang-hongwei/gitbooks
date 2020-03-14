@@ -8,9 +8,39 @@
     <body>
         <button id="btn">click</button>
         <script>
-            let ary = [1, 2, 3];
+            let ary = [98, 67, 32, 56, 12, 42, 13, 88];
+            // let ary = [1, 2, 3, 4, 5, 6];
+            // let num = 0;
+            // let tag = true;
+            function select_sort(ary) {
+                const { length } = ary;
+                let minIndex, temp;
+                for (let i = 0; i < length - 1; i++) {
+                    minIndex = i;
+                    for (let j = i + 1; j < length - 1; j++) {
+                        if (ary[j] < ary[minIndex]) {
+                            minIndex = j;
+                        }
+                    }
 
-            console.log(ary);
+                    temp = ary[i];
+                    ary[i] = ary[minIndex];
+                    ary[minIndex] = temp;
+                }
+                return ary;
+            }
+
+            let b = select_sort(ary);
+
+            console.log(b);
+
+            // console.log("num====>", num);
+
+            // let ary = [1, 2, 3, 45, 6];
+
+            // for (let i = ary.length; i > 0; i--) {
+            //     console.log(i);
+            // }
         </script>
     </body>
 </html>

@@ -93,11 +93,12 @@ g.next().value.then(res => {
 co(generator);
 ```
 
-### co
+### 4.1 co
 
 自动执行 Generator
 
 ```js
+// co 核心源码
 function co(gen) {
     var ctx = this;
     var args = slice.call(arguments, 1);
