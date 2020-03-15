@@ -8,9 +8,38 @@
     <body>
         <button id="btn">click</button>
         <script>
-            let ary = [1, 2, 3];
+            let ary = [98, 67, 32, 56, 12, 42, 13, 88];
+            // let ary = [1, 2, 3, 4, 5, 6];
+            // let num = 0;
+            // let tag = true;
+            function insertion_sort(ary) {
+                const { length } = ary;
+                let preIndex, current;
+                for (let i = 1; i < length; i++) {
+                    preIndex = i - 1;
+                    current = ary[i];
+                    while (preIndex >= 0 && ary[preIndex] > current) {
+                        ary[preIndex + 1] = ary[preIndex];
+                        preIndex--;
+                    }
 
-            console.log(ary);
+                    ary[preIndex + 1] = current;
+                }
+
+                return ary;
+            }
+
+            let b = insertion_sort(ary);
+
+            console.log(b);
+
+            // console.log("num====>", num);
+
+            // let ary = [1, 2, 3, 45, 6];
+
+            // for (let i = ary.length; i > 0; i--) {
+            //     console.log(i);
+            // }
         </script>
     </body>
 </html>

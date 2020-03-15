@@ -12,25 +12,24 @@
             // let ary = [1, 2, 3, 4, 5, 6];
             // let num = 0;
             // let tag = true;
-            function select_sort(ary) {
+            function insertion_sort(ary) {
                 const { length } = ary;
-                let minIndex, temp;
-                for (let i = 0; i < length - 1; i++) {
-                    minIndex = i;
-                    for (let j = i + 1; j < length - 1; j++) {
-                        if (ary[j] < ary[minIndex]) {
-                            minIndex = j;
-                        }
+                let preIndex, current;
+                for (let i = 1; i < length; i++) {
+                    preIndex = i - 1;
+                    current = ary[i];
+                    while (preIndex >= 0 && ary[preIndex] > current) {
+                        ary[preIndex + 1] = ary[preIndex];
+                        preIndex--;
                     }
 
-                    temp = ary[i];
-                    ary[i] = ary[minIndex];
-                    ary[minIndex] = temp;
+                    ary[preIndex + 1] = current;
                 }
+
                 return ary;
             }
 
-            let b = select_sort(ary);
+            let b = insertion_sort(ary);
 
             console.log(b);
 

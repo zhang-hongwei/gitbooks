@@ -4,8 +4,6 @@
 
 ## 1. 冒泡排序
 
-图例
-
 ![冒泡排序](../imgs/sort/bubbleSort.gif)
 
 冒泡排序算法的原理如下：
@@ -58,8 +56,6 @@ function bubble_sort(ary) {
 
 ## 选择排序
 
-图例
-
 ![选择排序](../imgs/sort/selectionSort.gif)
 
 1. 首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，
@@ -106,31 +102,54 @@ function select_sort(ary) {
 
 ## 3. 插入排序
 
-图例
-
 ![插入排序](../imgs/sort/insertionSort.gif)
 
-## 4. 希尔排序
+1. 将第一待排序序列第一个元素看做一个有序序列，把第二个元素到最后一个元素当成是未排序序列。
 
-图例
+2. 从头到尾依次扫描未排序序列，将扫描到的每个元素插入有序序列的适当位置。（如果待插入的元素与有序序列中的某个元素相等，则将待插入元素插入到相等元素的后面。）
+
+```js
+function insertion_sort(ary) {
+    const { length } = ary;
+    let preIndex, current;
+    for (let i = 1; i < length; i++) {
+        preIndex = i - 1;
+        current = ary[i];
+        while (preIndex >= 0 && ary[preIndex] > current) {
+            ary[preIndex + 1] = ary[preIndex];
+            preIndex--;
+        }
+
+        ary[preIndex + 1] = current;
+    }
+
+    return ary;
+}
+```
+
+## 4. 希尔排序
 
 ![希尔排序](../imgs/sort/Sorting_shellsort_anim.gif)
 
 ## 5. 归并排序
 
-图例
-
 ![归并排序](../imgs/sort/mergeSort.gif)
 
-## 6. 快速排序
+1. 申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列；
 
-图例
+2. 设定两个指针，最初位置分别为两个已经排序序列的起始位置；
+
+3. 比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置；
+
+4. 重复步骤 3 直到某一指针达到序列尾；
+
+5. 将另一序列剩下的所有元素直接复制到合并序列尾。
+
+## 6. 快速排序
 
 ![快速排序](../imgs/sort/quickSort.gif)
 
 ## 7. 堆排序
-
-图例
 
 ![堆排序](../imgs/sort/heapSort.gif)
 
@@ -138,13 +157,9 @@ function select_sort(ary) {
 
 ## 8. 计数排序
 
-图例
-
 ![计数排序](../imgs/sort/countingSort.gif)
 
 ## 9. 桶排序
-
-图例
 
 元素分布在桶中：
 
@@ -155,8 +170,6 @@ function select_sort(ary) {
 ![桶排序](../imgs/sort/Bucket_sort_2.svg_.png)
 
 ## 10. 基数排序
-
-图例
 
 ![基数排序](../imgs/sort/radixSort.gif)
 
