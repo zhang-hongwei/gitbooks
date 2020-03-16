@@ -7,7 +7,7 @@
         <title>异步 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -799,11 +799,11 @@
 &#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x903B;&#x8F91;&#x662F;&#x5728;&#x8BF7;&#x6C42;&#x51FD;&#x6570;&#x5185;&#x90E8;&#xFF0C;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x4FDD;&#x8BC1;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E00;&#x5B9A;&#x4F1A;&#x88AB;&#x6B63;&#x786E;&#x8C03;&#x7528;&#x3002;&#x56DE;&#x8C03;&#x672C;&#x8EAB;&#x6CA1;&#x6709;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x673A;&#x5236;&#xFF0C;&#x9700;&#x8981;&#x989D;&#x5916;&#x8BBE;&#x8BA1;&#x3002;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x7684;&#x9519;&#x8BEF;&#x5305;&#x62EC;&#xFF1A;&#x56DE;&#x8C03;&#x8FD4;&#x56DE;&#x9519;&#x8BEF;&#x7ED3;&#x679C;&#x3001;&#x541E;&#x6389;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x7684;&#x9519;&#x8BEF;&#x4E0E;&#x5F02;&#x5E38;&#x3001;&#x56DE;&#x8C03;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x3001;&#x56DE;&#x8C03;&#x88AB;&#x591A;&#x6B21;&#x6267;&#x884C;&#x3001;&#x56DE;&#x8C03;&#x88AB;&#x540C;&#x6B65;&#x6267;&#x884C;&#x7B49;&#x7B49;&#x3002;</li>
 </ul>
 <pre><code class="lang-js"><span class="hljs-comment">// &#x4F7F;&#x7528;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x65B9;&#x5F0F;&#x4F9D;&#x6B21;&#x8BFB;&#x53D6;&#x4E09;&#x4E2A;&#x6587;&#x4EF6;</span>
-fs.readFile(<span class="hljs-string">&quot;./a.txt&quot;</span>, <span class="hljs-string">&quot;utf-8&quot;</span>, (err, data) =&gt; {
+fs.readFile(<span class="hljs-string">&apos;./a.txt&apos;</span>, <span class="hljs-string">&apos;utf-8&apos;</span>, (err, data) =&gt; {
     <span class="hljs-built_in">console</span>.log(data);
-    fs.readFile(<span class="hljs-string">&quot;./b.txt&quot;</span>, <span class="hljs-string">&quot;utf-8&quot;</span>, (err, data) =&gt; {
+    fs.readFile(<span class="hljs-string">&apos;./b.txt&apos;</span>, <span class="hljs-string">&apos;utf-8&apos;</span>, (err, data) =&gt; {
         <span class="hljs-built_in">console</span>.log(data);
-        fs.readFile(<span class="hljs-string">&quot;./c.txt&quot;</span>, <span class="hljs-string">&quot;utf-8&quot;</span>, (err, data) =&gt; {
+        fs.readFile(<span class="hljs-string">&apos;./c.txt&apos;</span>, <span class="hljs-string">&apos;utf-8&apos;</span>, (err, data) =&gt; {
             <span class="hljs-built_in">console</span>.log(data);
         });
     });
@@ -814,49 +814,52 @@ fs.readFile(<span class="hljs-string">&quot;./a.txt&quot;</span>, <span class="h
 <h2 id="3-promise">3. Promise</h2>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readFile</span>(<span class="hljs-params">url</span>) </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; {
-        fs.readFile(url, <span class="hljs-string">&quot;utf-8&quot;</span>, (err, data) =&gt; {
+        fs.readFile(url, <span class="hljs-string">&apos;utf-8&apos;</span>, (err, data) =&gt; {
             resolve(data);
         });
     });
 }
 
-readFile(<span class="hljs-string">&quot;./a.txt&quot;</span>).then(res =&gt; {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;res===&gt;&quot;</span>, res);
-    readFile(<span class="hljs-string">&quot;./b.txt&quot;</span>).then(res =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;res===&gt;&quot;</span>, res);
-        readFile(<span class="hljs-string">&quot;./c.txt&quot;</span>).then(res =&gt; {
-            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;res===&gt;&quot;</span>, res);
+readFile(<span class="hljs-string">&apos;./a.txt&apos;</span>).then(res =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;res===&gt;&apos;</span>, res);
+    readFile(<span class="hljs-string">&apos;./b.txt&apos;</span>).then(res =&gt; {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;res===&gt;&apos;</span>, res);
+        readFile(<span class="hljs-string">&apos;./c.txt&apos;</span>).then(res =&gt; {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;res===&gt;&apos;</span>, res);
         });
     });
 });
 </code></pre>
 <hr>
 <h2 id="4-generator">4. Generator</h2>
-<p>&#x6267;&#x884C; Generator &#x51FD;&#x6570;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x904D;&#x5386;&#x5668;&#x5BF9;&#x8C61;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;Generator &#x51FD;&#x6570;&#x9664;&#x4E86;&#x72B6;&#x6001;&#x673A;&#xFF0C;&#x8FD8;&#x662F;&#x4E00;&#x4E2A;&#x904D;&#x5386;&#x5668;&#x5BF9;&#x8C61;&#x751F;&#x6210;&#x51FD;&#x6570;&#x3002;&#x8FD4;&#x56DE;&#x7684;&#x904D;&#x5386;&#x5668;&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x4F9D;&#x6B21;&#x904D;&#x5386; Generator &#x51FD;&#x6570;&#x5185;&#x90E8;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x3002;</p>
+<ol>
+<li>Generator &#x662F;&#x4E00;&#x4E2A;&#x904D;&#x5386;&#x5668;&#x5BF9;&#x8C61;&#x751F;&#x6210;&#x51FD;&#x6570;&#xFF0C; &#x6267;&#x884C; Generator &#x51FD;&#x6570;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x904D;&#x5386;&#x5668;&#x5BF9;&#x8C61;</li>
+<li>&#x8FD4;&#x56DE;&#x7684;&#x904D;&#x5386;&#x5668;&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x4F9D;&#x6B21;&#x904D;&#x5386; Generator &#x51FD;&#x6570;&#x5185;&#x90E8;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x3002;</li>
+</ol>
 <pre><code class="lang-js"><span class="hljs-comment">// Promise + Generator</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readFile</span>(<span class="hljs-params">url</span>) </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; {
-        fs.readFile(url, <span class="hljs-string">&quot;utf-8&quot;</span>, (err, data) =&gt; {
+        fs.readFile(url, <span class="hljs-string">&apos;utf-8&apos;</span>, (err, data) =&gt; {
             resolve(data);
         });
     });
 }
 <span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">generator</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">const</span> res1 = <span class="hljs-keyword">yield</span> readFile(<span class="hljs-string">&quot;./a.txt&quot;</span>);
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;res===&gt;&quot;</span>, res1);
-    <span class="hljs-keyword">const</span> res2 = <span class="hljs-keyword">yield</span> readFile(<span class="hljs-string">&quot;./b.txt&quot;</span>);
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;res===&gt;&quot;</span>, res2);
-    <span class="hljs-keyword">const</span> res3 = <span class="hljs-keyword">yield</span> readFile(<span class="hljs-string">&quot;./c.txt&quot;</span>);
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;res===&gt;&quot;</span>, res3);
+    <span class="hljs-keyword">const</span> res1 = <span class="hljs-keyword">yield</span> readFile(<span class="hljs-string">&apos;./a.txt&apos;</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;res===&gt;&apos;</span>, res1);
+    <span class="hljs-keyword">const</span> res2 = <span class="hljs-keyword">yield</span> readFile(<span class="hljs-string">&apos;./b.txt&apos;</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;res===&gt;&apos;</span>, res2);
+    <span class="hljs-keyword">const</span> res3 = <span class="hljs-keyword">yield</span> readFile(<span class="hljs-string">&apos;./c.txt&apos;</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;res===&gt;&apos;</span>, res3);
 }
 
 <span class="hljs-keyword">let</span> g = generator();
 g.next().value.then(res =&gt; {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;res===&gt;&quot;</span>, res);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;res===&gt;&apos;</span>, res);
     g.next().value.then(res =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;res===&gt;&quot;</span>, res);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;res===&gt;&apos;</span>, res);
         g.next().value.then(res =&gt; {
-            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;res===&gt;&quot;</span>, res);
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;res===&gt;&apos;</span>, res);
         });
     });
 });
@@ -871,8 +874,8 @@ co(generator);
     <span class="hljs-keyword">var</span> ctx = <span class="hljs-keyword">this</span>;
     <span class="hljs-keyword">var</span> args = slice.call(<span class="hljs-built_in">arguments</span>, <span class="hljs-number">1</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>{
-        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> gen === <span class="hljs-string">&quot;function&quot;</span>) gen = gen.apply(ctx, args);
-        <span class="hljs-keyword">if</span> (!gen || <span class="hljs-keyword">typeof</span> gen.next !== <span class="hljs-string">&quot;function&quot;</span>) <span class="hljs-keyword">return</span> resolve(gen);
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> gen === <span class="hljs-string">&apos;function&apos;</span>) gen = gen.apply(ctx, args);
+        <span class="hljs-keyword">if</span> (!gen || <span class="hljs-keyword">typeof</span> gen.next !== <span class="hljs-string">&apos;function&apos;</span>) <span class="hljs-keyword">return</span> resolve(gen);
 
         onFulfilled();
 
@@ -903,7 +906,7 @@ co(generator);
                 <span class="hljs-keyword">return</span> value.then(onFulfilled, onRejected);
             <span class="hljs-keyword">return</span> onRejected(
                 <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(
-                    <span class="hljs-string">&quot;You may only yield a function, promise, generator, array, or object, &quot;</span> +
+                    <span class="hljs-string">&apos;You may only yield a function, promise, generator, array, or object, &apos;</span> +
                         <span class="hljs-string">&apos;but the following object was passed: &quot;&apos;</span> +
                         <span class="hljs-built_in">String</span>(ret.value) +
                         <span class="hljs-string">&apos;&quot;&apos;</span>
@@ -928,18 +931,18 @@ co(generator);
 <h2 id="5-asyncawait">5. async/await</h2>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readFile</span>(<span class="hljs-params">url</span>) </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; {
-        fs.readFile(url, <span class="hljs-string">&quot;utf-8&quot;</span>, (err, data) =&gt; {
+        fs.readFile(url, <span class="hljs-string">&apos;utf-8&apos;</span>, (err, data) =&gt; {
             resolve(data);
         });
     });
 }
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">read</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">const</span> res1 = <span class="hljs-keyword">await</span> readFile(<span class="hljs-string">&quot;./a.txt&quot;</span>);
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;res===&gt;&quot;</span>, res1);
-    <span class="hljs-keyword">const</span> res2 = <span class="hljs-keyword">await</span> readFile(<span class="hljs-string">&quot;./b.txt&quot;</span>);
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;res===&gt;&quot;</span>, res2);
-    <span class="hljs-keyword">const</span> res3 = <span class="hljs-keyword">await</span> readFile(<span class="hljs-string">&quot;./c.txt&quot;</span>);
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;res===&gt;&quot;</span>, res3);
+    <span class="hljs-keyword">const</span> res1 = <span class="hljs-keyword">await</span> readFile(<span class="hljs-string">&apos;./a.txt&apos;</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;res===&gt;&apos;</span>, res1);
+    <span class="hljs-keyword">const</span> res2 = <span class="hljs-keyword">await</span> readFile(<span class="hljs-string">&apos;./b.txt&apos;</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;res===&gt;&apos;</span>, res2);
+    <span class="hljs-keyword">const</span> res3 = <span class="hljs-keyword">await</span> readFile(<span class="hljs-string">&apos;./c.txt&apos;</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;res===&gt;&apos;</span>, res3);
 }
 
 read();
@@ -987,7 +990,7 @@ read();
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"异步","level":"1.7","depth":1,"next":{"title":"模块化","level":"1.8","depth":1,"path":"pages/module/index.md","ref":"./pages/module/index.md","articles":[]},"previous":{"title":"算法","level":"1.6","depth":1,"path":"pages/algorithm/index.md","ref":"./pages/algorithm/index.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","back-to-top-button","code","splitter","livereload"],"root":"./","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"pages/async/index.md","mtime":"2020-03-13T04:53:59.147Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-15T02:23:42.601Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"异步","level":"1.7","depth":1,"next":{"title":"模块化","level":"1.8","depth":1,"path":"pages/module/index.md","ref":"./pages/module/index.md","articles":[]},"previous":{"title":"算法","level":"1.6","depth":1,"path":"pages/algorithm/index.md","ref":"./pages/algorithm/index.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","back-to-top-button","code","splitter","livereload"],"root":"./","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"pages/async/index.md","mtime":"2020-03-16T03:10:04.351Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-03-16T01:49:26.694Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
