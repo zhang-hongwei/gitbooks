@@ -149,6 +149,86 @@ function insertion_sort(ary) {
 
 ![快速排序](../imgs/sort/quickSort.gif)
 
+1. 挑选基准值：从数列中挑出一个元素，称为“基准”（pivot），
+2. 分割：重新排序数列，所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（与基准值相等的数可以到任何一边）。在这个分割结束之后，对基准值的排序就已经完成，
+3. 递归排序子序列：递归地将小于基准值元素的子序列和大于基准值元素的子序列排序。
+
+```js
+// 版本1
+function quickSort(ary) {
+    const { length } = ary;
+    if (length < 2) return ary;
+    const basic = ary[0],
+        left = [],
+        right = [];
+    for (let i = 1; i < length; i++) {
+        // const current = ary[i];
+        // current > basic && right.push(current); // to avoid repeatly element.
+        // current < basic && left.push(current);
+        ary[i] < basic ? left.push(ary[i]) : right.push(ary[i]);
+    }
+    return quickSort(left).concat(basic, quickSort(right));
+}
+
+// 版本二
+
+var quickSort = function(arr) {
+    if (arr.length <= 1) {
+        return arr;
+    }
+    let pivotIndex = Math.floor(arr.length / 2);
+    let pivot = arr.splice(pivotIndex, 1)[0];
+    let left = [];
+    let right = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] < pivot) {
+            left.push(arr[i]);
+        } else {
+            right.push(arr[i]);
+        }
+    }
+
+    return quickSort(left).concat([pivot], quickSort(right));
+};
+
+// 版本三
+
+function swap(arr, i, j) {
+    var temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+    // [ary[j], ary[j + 1]] = [ary[j + 1], ary[j]];
+}
+function quickSort(arr, left = 0, right = arr.length - 1) {
+    if (left < right) {
+        // const pivot = left + Math.ceil((right - left) * 0.5);
+        const pivot = Math.floor((right + left) / 2);
+        const newPivot = partition(arr, pivot, left, right);
+
+        quickSort(arr, left, newPivot - 1);
+        quickSort(arr, newPivot + 1, right);
+    }
+
+    return arr;
+}
+
+function partition(arr, pivot, left, right) {
+    const pivotValue = arr[pivot];
+    let newPivot = left;
+
+    swap(arr, pivot, right);
+    for (let i = left; i < right; i++) {
+        if (arr[i] < pivotValue) {
+            swap(arr, i, newPivot);
+            newPivot += 1;
+        }
+    }
+    swap(arr, right, newPivot);
+
+    return newPivot;
+}
+```
+
 ## 7. 堆排序
 
 ![堆排序](../imgs/sort/heapSort.gif)
@@ -172,6 +252,10 @@ function insertion_sort(ary) {
 ## 10. 基数排序
 
 ![基数排序](../imgs/sort/radixSort.gif)
+
+1. 基数排序：根据键值的每位数字来分配桶；
+2. 计数排序：每个桶只存储单一键值；
+3. 桶排序：每个桶存储一定范围的数值；
 
 ## 数组去重
 

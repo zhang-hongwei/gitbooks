@@ -4,42 +4,47 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-    </head>
-    <body>
-        <button id="btn">click</button>
-        <script>
-            let ary = [98, 67, 32, 56, 12, 42, 13, 88];
-            // let ary = [1, 2, 3, 4, 5, 6];
-            // let num = 0;
-            // let tag = true;
-            function insertion_sort(ary) {
-                const { length } = ary;
-                let preIndex, current;
-                for (let i = 1; i < length; i++) {
-                    preIndex = i - 1;
-                    current = ary[i];
-                    while (preIndex >= 0 && ary[preIndex] > current) {
-                        ary[preIndex + 1] = ary[preIndex];
-                        preIndex--;
-                    }
-
-                    ary[preIndex + 1] = current;
-                }
-
-                return ary;
+        <style>
+            .box {
+                width: 300px;
+                height: 300px;
+                background: red;
+                margin-bottom: 100px;
+                overflow: hidden;
+                border: 1px solid red;
+            }
+            .box1 {
+                width: 300px;
+                height: 300px;
+                background: rgb(15, 15, 15);
+                margin-top: 200px;
+                overflow: hidden;
+                border: 1px solid red;
+            }
+            section {
+                margin-top: 13px;
+                margin-bottom: 0px;
+                border: 1px solid rgb(0, 162, 255);
             }
 
-            let b = insertion_sort(ary);
+            header {
+                margin-top: 87px;
+                border: 1px solid rgb(7, 6, 6);
+            }
 
-            console.log(b);
-
-            // console.log("num====>", num);
-
-            // let ary = [1, 2, 3, 45, 6];
-
-            // for (let i = ary.length; i > 0; i--) {
-            //     console.log(i);
-            // }
-        </script>
+            footer {
+                margin-bottom: 13px;
+                border: 1px solid rgb(0, 255, 128);
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <div class="box"></div>
+        <div class="box1"></div> -->
+        <section>
+            <header>上边界重叠 87</header>
+            <main></main>
+            <footer>下边界重叠 87 不能再高了</footer>
+        </section>
     </body>
 </html>

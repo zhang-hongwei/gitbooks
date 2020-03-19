@@ -27,8 +27,9 @@
 
 -   [react](./pages/react/index.md)
 
-    -   [react-router](./pages/react/react-router/router.md)
-        -   [route](./pages/react/react-router/route.md)
+    -   [react-router](./pages/react/react-router/index.md)
+        -   [Router](./pages/react/react-router/router.md)
+        -   [Route](./pages/react/react-router/route.md)
         -   [Switch](./pages/react/react-router/Switch.md)
         -   [link](./pages/react/react-router/link.md)
         -   [WithRouter](./pages/react/react-router/WithRouter.md)
