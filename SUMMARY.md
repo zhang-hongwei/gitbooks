@@ -54,6 +54,8 @@
     -   [数据类型](./pages/js/types.md)
     -   [ES6](./pages/js/es6/index.md)
 
+-   [html 和 css](./pages/css/index.md)
+
 -   [算法](./pages/algorithm/index.md)
 -   [异步](./pages/async/index.md)
 -   [模块化](./pages/module/index.md)
