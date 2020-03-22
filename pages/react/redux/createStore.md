@@ -1,35 +1,28 @@
-# CreateStore
+# createStore
 
-## createStore
+1. 是否存在中间件
+
+    - 是,调用 enhancer(applyMiddleware(middlewares)) 创建 store
+    - 否,正常创建 store
+
+2. store 中存在以下几个主要方法
+
+    - dispatch, 接收一个对象(action)
+        - 调用 reducer
+        - 执行 listeners
+        - 返回 action
+    - subscribe,接收一个监听函数
+        - push 到 listeners 中
+        - 返回一个接触监听的函数
+    - getState
+        - 返回 state
+    - replaceReducer
+        - 接收一个 reducer
+        - 替换当前 reducer
+        - 返回 store
 
 ```js
-/**
- * Creates a Redux store that holds the state tree.
- * The only way to change the data in the store is to call `dispatch()` on it.
- *
- * There should only be a single store in your app. To specify how different
- * parts of the state tree respond to actions, you may combine several reducers
- * into a single reducer function by using `combineReducers`.
- *
- * @param reducer A function that returns the next state tree, given
- * the current state tree and the action to handle.
- *
- * @param preloadedState The initial state. You may optionally specify it
- * to hydrate the state from the server in universal apps, or to restore a
- * previously serialized user session.
- * If you use `combineReducers` to produce the root reducer function, this must be
- * an object with the same shape as `combineReducers` keys.
- *
- * @param enhancer The store enhancer. You may optionally specify it
- * to enhance the store with third-party capabilities such as middleware,
- * time travel, persistence, etc. The only store enhancer that ships with Redux
- * is `applyMiddleware()`.
- *
- * @returns A Redux store that lets you read the state, dispatch actions
- * and subscribe to changes.
- */
 function createStore(reducer, preloadedState, enhancer) {
-    // 1, 首先判断预置的preloadedState是否存在，如果该位置是一个函数，还需要再判断enhancer
     if (
         (typeof preloadedState === "function" &&
             typeof enhancer === "function") ||
@@ -187,6 +180,7 @@ function createStore(reducer, preloadedState, enhancer) {
      * return something else (for example, a Promise you can await).
      */
     function dispatch(action) {
+        // console.log('===原生==>1');
         if (!isPlainObject(action)) {
             throw new Error(
                 "Actions must be plain objects. " +
@@ -213,6 +207,9 @@ function createStore(reducer, preloadedState, enhancer) {
         }
 
         const listeners = (currentListeners = nextListeners);
+
+        // console.log("========listeners====>", listeners);
+        // console.log("========listeners====>", nextListeners);
         for (let i = 0; i < listeners.length; i++) {
             const listener = listeners[i];
             listener();
@@ -309,7 +306,3 @@ function createStore(reducer, preloadedState, enhancer) {
     return store;
 }
 ```
-
-1. preloadedState 和 enhancer 都是可选参数，因此需要判断第二个参数的类型，如果是 function，说明该位置是 enhancer,则 enhancer = preloadedState， preloadedState = undefined,而此时就不应该有第三个参数存在,否抛出错误
-
-2.
