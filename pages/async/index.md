@@ -17,11 +17,11 @@
 
 ```js
 // 使用回调函数的方式依次读取三个文件
-fs.readFile("./a.txt", "utf-8", (err, data) => {
+fs.readFile('./a.txt', 'utf-8', (err, data) => {
     console.log(data);
-    fs.readFile("./b.txt", "utf-8", (err, data) => {
+    fs.readFile('./b.txt', 'utf-8', (err, data) => {
         console.log(data);
-        fs.readFile("./c.txt", "utf-8", (err, data) => {
+        fs.readFile('./c.txt', 'utf-8', (err, data) => {
             console.log(data);
         });
     });
@@ -37,18 +37,18 @@ fs.readFile("./a.txt", "utf-8", (err, data) => {
 ```js
 function readFile(url) {
     return new Promise((resolve, reject) => {
-        fs.readFile(url, "utf-8", (err, data) => {
+        fs.readFile(url, 'utf-8', (err, data) => {
             resolve(data);
         });
     });
 }
 
-readFile("./a.txt").then(res => {
-    console.log("res===>", res);
-    readFile("./b.txt").then(res => {
-        console.log("res===>", res);
-        readFile("./c.txt").then(res => {
-            console.log("res===>", res);
+readFile('./a.txt').then(res => {
+    console.log('res===>', res);
+    readFile('./b.txt').then(res => {
+        console.log('res===>', res);
+        readFile('./c.txt').then(res => {
+            console.log('res===>', res);
         });
     });
 });
@@ -58,33 +58,34 @@ readFile("./a.txt").then(res => {
 
 ## 4. Generator
 
-执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。
+1. Generator 是一个遍历器对象生成函数， 执行 Generator 函数会返回一个遍历器对象
+2. 返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。
 
 ```js
 // Promise + Generator
 function readFile(url) {
     return new Promise((resolve, reject) => {
-        fs.readFile(url, "utf-8", (err, data) => {
+        fs.readFile(url, 'utf-8', (err, data) => {
             resolve(data);
         });
     });
 }
 function* generator() {
-    const res1 = yield readFile("./a.txt");
-    console.log("res===>", res1);
-    const res2 = yield readFile("./b.txt");
-    console.log("res===>", res2);
-    const res3 = yield readFile("./c.txt");
-    console.log("res===>", res3);
+    const res1 = yield readFile('./a.txt');
+    console.log('res===>', res1);
+    const res2 = yield readFile('./b.txt');
+    console.log('res===>', res2);
+    const res3 = yield readFile('./c.txt');
+    console.log('res===>', res3);
 }
 
 let g = generator();
 g.next().value.then(res => {
-    console.log("res===>", res);
+    console.log('res===>', res);
     g.next().value.then(res => {
-        console.log("res===>", res);
+        console.log('res===>', res);
         g.next().value.then(res => {
-            console.log("res===>", res);
+            console.log('res===>', res);
         });
     });
 });
@@ -103,8 +104,8 @@ function co(gen) {
     var ctx = this;
     var args = slice.call(arguments, 1);
     return new Promise(function(resolve, reject) {
-        if (typeof gen === "function") gen = gen.apply(ctx, args);
-        if (!gen || typeof gen.next !== "function") return resolve(gen);
+        if (typeof gen === 'function') gen = gen.apply(ctx, args);
+        if (!gen || typeof gen.next !== 'function') return resolve(gen);
 
         onFulfilled();
 
@@ -135,7 +136,7 @@ function co(gen) {
                 return value.then(onFulfilled, onRejected);
             return onRejected(
                 new TypeError(
-                    "You may only yield a function, promise, generator, array, or object, " +
+                    'You may only yield a function, promise, generator, array, or object, ' +
                         'but the following object was passed: "' +
                         String(ret.value) +
                         '"'
@@ -160,18 +161,18 @@ function co(gen) {
 ```js
 function readFile(url) {
     return new Promise((resolve, reject) => {
-        fs.readFile(url, "utf-8", (err, data) => {
+        fs.readFile(url, 'utf-8', (err, data) => {
             resolve(data);
         });
     });
 }
 async function read() {
-    const res1 = await readFile("./a.txt");
-    console.log("res===>", res1);
-    const res2 = await readFile("./b.txt");
-    console.log("res===>", res2);
-    const res3 = await readFile("./c.txt");
-    console.log("res===>", res3);
+    const res1 = await readFile('./a.txt');
+    console.log('res===>', res1);
+    const res2 = await readFile('./b.txt');
+    console.log('res===>', res2);
+    const res3 = await readFile('./c.txt');
+    console.log('res===>', res3);
 }
 
 read();
