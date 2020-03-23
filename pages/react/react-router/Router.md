@@ -43,8 +43,6 @@ class Router extends React.Component {
         if (this._pendingLocation) {
             this.setState({ location: this._pendingLocation });
         }
-
-        console.log("===> this.propsqqq", this.props);
     }
 
     componentWillUnmount() {
@@ -69,5 +67,5 @@ class Router extends React.Component {
 }
 ```
 
-1. Router 组件返回一个 ReactContext.Provider,并将 history,location,match,staticContext,作为 value 传给子组件,children 则是作为 React 的 children 属性
-2. 在 constructor 中监听 location 的变化,当 location 发生变化,就更新状态,并返回一个取消监听的函数
+> 1. 在 constructor 中 调用 history 的 listen 方法，监听 location 的变化，每当 url 发生变化的时候，就更新状态，这个时候 Context 以及下面的 Consumer 也会都会更新数据，根据新的 url 重新匹配组件。 listen 执行的返回值是一个取消监听的函数
+> 2. Router 组件返回一个 ReactContext.Provider,并将 history,location,match,staticContext,作为 value 传给子组件,children 则是作为 React 的 children 属性

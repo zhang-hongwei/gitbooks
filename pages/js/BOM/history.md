@@ -1,6 +1,9 @@
 # History
 
-接口允许操作浏览器的曾经在标签页或者框架里访问的会话历史记录
+1. history 对象保存着用户上网的历史记录，从窗口被打开的那一刻算起。
+2. 因为 history 是 window 对象的属性，因此每个浏览器窗口、每个标签页乃至每个框架，都有自己的 history 对象与特定的
+   window 对象关联。出于安全方面的考虑，开发人员无法得知用户浏览过的 URL。不过，借由用户访问
+   过的页面列表，同样可以在不知道实际 URL 的情况下实现后退和前进。
 
 ## 属性
 
@@ -8,7 +11,7 @@
 
 ### History.length
 
-返回一个整数，该整数表示会话历史中元素的数目，包括当前加载的页。例如，在一个新的选项卡加载的一个页面中，这个属性返回 1,
+返回一个整数，保存历史记录的数量。例如，在一个新的选项卡加载的一个页面中，这个属性返回 1,
 返回浏览器历史列表中的 URL 数量。
 
 ### History.state
@@ -51,7 +54,7 @@
 -   你可以将任意数据和新的历史记录项相关联。而基于哈希的方式，要把所有相关数据编码为短字符串。
 -   如果 标题 随后还会被浏览器所用到，那么这个数据是可以被使用的（哈希则不是）。
 
-⚠️ 注意 pushState() 绝对不会触发 hashchange 事件，即使新的 URL 与旧的 URL 仅哈希不同也是如此。
+⚠️ 注意 pushState() `绝对不会触发 hashchange 事件，即使新的 URL 与旧的 URL 仅哈希不同也是如此`。
 
 在 XUL 文档中，它创建指定的 XUL 元素。
 
@@ -79,7 +82,7 @@ window.addEventListener("popstate", function(e) {
 
 ## replaceState 和 pushState 行为的监听
 
-History.replaceState 和 pushState 确实不会触发 popstate 事件
+`History.replaceState 和 pushState 不会触发 popstate 事件`
 
 1. 可以通过在方法里面主动的去触发 popState 事件
 2. 代理该方法
@@ -111,7 +114,7 @@ history.replaceState = _wr("replaceState");
 })(window.history);
 ```
 
-当活动历史记录条目更改时，将触发 popstate 事件。如果被激活的历史记录条目是通过对 history.pushState（）的调用创建的，或者受到对 history.replaceState（）的调用的影响，popstate 事件的 state 属性包含历史条目的状态对象的副本。
+当活动历史记录条目更改时，将触发 popstate 事件。如果被激活的历史记录条目是通过对 history.pushState（）的调用创建的，或者受到对 history.replaceState()的调用的影响，popstate 事件的 state 属性包含历史条目的状态对象的副本。
 
 需要注意的是调用 history.pushState()或 history.replaceState()不会触发 popstate 事件。只有在做出浏览器动作时，才会触发该事件，如用户点击浏览器的回退按钮（或者在 Javascript 代码中调用 history.back()或者 history.forward()方法）
 

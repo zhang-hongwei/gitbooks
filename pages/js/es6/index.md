@@ -106,6 +106,51 @@ button.addEventListener("click", () => {
 
 ## 8. Promise
 
+> Promise 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值.
+
+### 8.1 基本使用
+
+```js
+new Promise( function(resolve, reject) {...} /* executor */  );
+```
+
+1. executor 是带有 resolve 和 reject 两个参数的函数 。
+2. Promise 构造函数执行时立即调用 executor 函数， resolve 和 reject 两个函数作为参数传递给 executor（executor 函数在 Promise 构造函数返回所建 promise 实例对象前被调用）。
+3. resolve 和 reject 函数被调用时，分别将 promise 的状态改为 fulfilled（完成）或 rejected（失败）。
+4. executor 内部通常会执行一些异步操作，一旦异步操作执行完毕(可能成功/失败)，要么调用 resolve 函数来将 promise 状态改成 fulfilled，要么调用 reject 函数将 promise 的状态改为 rejected。
+5. 如果在 executor 函数中抛出一个错误，那么该 promise 状态为 rejected。executor 函数的返回值被忽略。
+6. 因为 Promise.prototype.then 和 Promise.prototype.catch 方法返回 promise 对象， 所以它们可以被链式调用。
+
+### 8.2 方法
+
+Promise.all(iterable)
+
+1. 这个方法返回一个新的 promise 对象，该 promise 对象在 iterable 参数对象里所有的 promise 对象都成功的时候才会触发成功，一旦有任何一个 iterable 里面的 promise 对象失败则立即触发该 promise 对象的失败。
+2. 这个新的 promise 对象在触发成功状态以后，会把一个包含 iterable 里所有 promise 返回值的数组作为成功回调的返回值，顺序跟 iterable 的顺序保持一致；
+3. 如果这个新的 promise 对象触发了失败状态，它会把 iterable 里第一个触发失败的 promise 对象的错误信息作为它的失败错误信息。
+
+Promise.race(iterable)
+
+1. 当 iterable 参数里的任意一个子 promise 被成功或失败后，父 promise 马上也会用子 promise 的成功返回值或失败详情作为参数调用父 promise 绑定的相应句柄，并返回该 promise 对象。
+
+Promise.reject(reason)
+
+1. 返回一个状态为失败的 Promise 对象，并将给定的失败信息传递给对应的处理方法
+
+Promise.resolve(value)
+
+1. 返回一个状态由给定 value 决定的 Promise 对象。如果该值是 thenable(即，带有 then 方法的对象)，返回的 Promise 对象的最终状态由 then 方法执行决定；
+2. 否则的话(该 value 为空，基本类型或者不带 then 方法的对象),返回的 Promise 对象状态为 fulfilled，并且将该 value 传递给对应的 then 方法。
+3. 通常而言，如果你不知道一个值是否是 Promise 对象，使用 Promise.resolve(value) 来返回一个 Promise 对象,这样就能将该 value 以 Promise 对象形式使用。
+
+Promise.prototype.catch(onRejected)
+
+Promise.prototype.then(onFulfilled, onRejected)
+
+Promise.prototype.finally(onFinally)
+
+无论当前 promise 的状态是完成(fulfilled)还是失败(rejected)，都会执行该函数
+
 ## 9. Iterator
 
 Iterator 的作用有三个：
@@ -154,56 +199,71 @@ Iterator 的遍历过程是这样的。
 
 ## 11. async
 
+基本使用
+
+```js
+// 写法一
+let [foo, bar] = await Promise.all([getFoo(), getBar()]);
+
+// 写法二
+let fooPromise = getFoo();
+let barPromise = getBar();
+let foo = await fooPromise;
+let bar = await barPromise;
+
+// async 实现原理
+// async 函数的实现原理，就是将 Generator 函数和自动执行器+Promise，包装在一个函数里。
+function fn(args) {
+    return spawn(function*() {
+        // ...
+    });
+}
+
+function spawn(genF) {
+    return new Promise(function(resolve, reject) {
+        const gen = genF();
+        function step(nextF) {
+            let next;
+            try {
+                next = nextF();
+            } catch (e) {
+                return reject(e);
+            }
+            if (next.done) {
+                return resolve(next.value);
+            }
+            Promise.resolve(next.value).then(
+                function(v) {
+                    step(function() {
+                        return gen.next(v);
+                    });
+                },
+                function(e) {
+                    step(function() {
+                        return gen.throw(e);
+                    });
+                }
+            );
+        }
+        step(function() {
+            return gen.next(undefined);
+        });
+    });
+}
+```
+
+### 11.1 async 和 Generator 的区别
+
+1. 内置执行器,Generator 函数的执行必须靠执行器，所以才有了 co 模块，而 async 函数自带执行器。也就是说，async 函数的执行，与普通函数一模一样，只要一行。
+2. 更好的语义。
+3. 更广的适用性。co 模块约定，yield 命令后面只能是 Thunk 函数或 Promise 对象，`而 async 函数的 await 命令后面，可以是 Promise 对象和原始类型的值（数值、字符串和布尔值，但这时会自动转成立即 resolved 的 Promise 对象）。`
+4. 返回值是 Promise。
+
+async 函数的返回值是 Promise 对象，这比 Generator 函数的返回值是 Iterator 对象方便多了。你可以用 then 方法指定下一步的操作。
+
 ## 12. Class
 
 ## 13. Module
-
-## 14. Promise
-
-> Promise 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值.
-
-### 基本使用
-
-```js
-new Promise( function(resolve, reject) {...} /* executor */  );
-```
-
-1. executor 是带有 resolve 和 reject 两个参数的函数 。
-2. Promise 构造函数执行时立即调用 executor 函数， resolve 和 reject 两个函数作为参数传递给 executor（executor 函数在 Promise 构造函数返回所建 promise 实例对象前被调用）。
-3. resolve 和 reject 函数被调用时，分别将 promise 的状态改为 fulfilled（完成）或 rejected（失败）。
-4. executor 内部通常会执行一些异步操作，一旦异步操作执行完毕(可能成功/失败)，要么调用 resolve 函数来将 promise 状态改成 fulfilled，要么调用 reject 函数将 promise 的状态改为 rejected。
-5. 如果在 executor 函数中抛出一个错误，那么该 promise 状态为 rejected。executor 函数的返回值被忽略。
-6. 因为 Promise.prototype.then 和 Promise.prototype.catch 方法返回 promise 对象， 所以它们可以被链式调用。
-
-### 方法
-
-#### Promise.all(iterable)
-
-1. 这个方法返回一个新的 promise 对象，该 promise 对象在 iterable 参数对象里所有的 promise 对象都成功的时候才会触发成功，一旦有任何一个 iterable 里面的 promise 对象失败则立即触发该 promise 对象的失败。
-2. 这个新的 promise 对象在触发成功状态以后，会把一个包含 iterable 里所有 promise 返回值的数组作为成功回调的返回值，顺序跟 iterable 的顺序保持一致；
-3. 如果这个新的 promise 对象触发了失败状态，它会把 iterable 里第一个触发失败的 promise 对象的错误信息作为它的失败错误信息。
-
-#### Promise.race(iterable)
-
-1. 当 iterable 参数里的任意一个子 promise 被成功或失败后，父 promise 马上也会用子 promise 的成功返回值或失败详情作为参数调用父 promise 绑定的相应句柄，并返回该 promise 对象。
-
-#### Promise.reject(reason)
-
-1. 返回一个状态为失败的 Promise 对象，并将给定的失败信息传递给对应的处理方法
-
-#### Promise.resolve(value)
-
-1. 返回一个状态由给定 value 决定的 Promise 对象。如果该值是 thenable(即，带有 then 方法的对象)，返回的 Promise 对象的最终状态由 then 方法执行决定；
-2. 否则的话(该 value 为空，基本类型或者不带 then 方法的对象),返回的 Promise 对象状态为 fulfilled，并且将该 value 传递给对应的 then 方法。
-3. 通常而言，如果你不知道一个值是否是 Promise 对象，使用 Promise.resolve(value) 来返回一个 Promise 对象,这样就能将该 value 以 Promise 对象形式使用。
-
-#### Promise.prototype.catch(onRejected)
-
-#### Promise.prototype.then(onFulfilled, onRejected)
-
-#### Promise.prototype.finally(onFinally)
-
-无论当前 promise 的状态是完成(fulfilled)还是失败(rejected)，都会执行该函数
 
 ## for...of, for...in
 

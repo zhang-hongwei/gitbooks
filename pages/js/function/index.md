@@ -241,3 +241,14 @@ var handler = {
 var btn = document.getElementById("my-btn");
 EventUtil.addHandler(btn, "click", handler.handleClick);
 ```
+
+## 函数签名
+
+> 函数签名（或者类型签名，抑或方法签名）定义了函数或方法的输入与输出。
+
+1. 签名可包含以下内容：
+
+    - 参数及参数的类型
+    - 一个的返回值及其类型
+    - 可能会抛出或传回的异常
+    - 该方法在面向对象程序中的可用性方面的信息（如 public、static 或 prototype）。

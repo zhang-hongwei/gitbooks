@@ -1,5 +1,32 @@
 # route
 
+## pathToRegexp
+
+1. 输入是路径字符串（也就是 Route 中定义的 path 的值），输出包含两部分
+
+    - 正则表达式（re)
+    - 一个数组(keys)（用于记录 param 的 key 信息）
+
+## matchPath
+
+1. 参数:
+
+    - pathname 当前页面的 url
+
+    - options 当前 Route 的信息，必须有 path
+
+2. 执行过程
+
+    - matchPath 接收当前页面的 url，和当前 Route 的 path 属性
+    - 调用 compilePath，接收当前 Route 的 path 属性和一些默认参数，
+        - 调用 pathToRegexp 方法，将当前的 Route 的 path 转换为一个正则表达式,
+        - 返回一个包含正则表达式，和 keys 的对象
+    - 根据 compilePath 返回的正则捕获当前页面的 url(pathname)，如果当前 url 和 path 转换的正则匹配就返回一个数组，否则返回 null,
+        - 匹配成功, matchPath 返回一个包含 path,url,isExact,params 的 Object
+        - 匹配失败,返回 null,matchPath 结束,返回 null
+
+3. 根据 matchPath 返回的结果,决定创建哪个组件,如果 null,则不创建
+
 ## render
 
 ```js

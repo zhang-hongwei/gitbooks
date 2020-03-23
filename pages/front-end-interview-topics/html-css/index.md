@@ -1,14 +1,8 @@
 # 其他 CSS 方式设置垂直居中
 
-## 居中为什么要使用 Transform（为什么不使用 MarginLeft/Top）
+## 在 HTML 中如何做 SEO 优化
 
-## 介绍 CSS3 中 Position:sticky
-
-## 介绍 position 属性包括 CSS3 新增
-
-## 清除浮动
-
-## 定位问题（绝对定位、相对定位等）
+## 首屏和白屏时间如何计算
 
 ## 动画的了解
 
@@ -16,26 +10,57 @@
 
 ## 介绍 CSS，Xsrf
 
-## Div 垂直水平居中（Flex、绝对定位）
-
-## 两个元素块，一左一右，中间相距 10 像素
-
-## 上下固定，中间滚动布局如何实现
-
-## CSS选择器有哪些
-
-## 盒子模型，以及标准情况和IE下的区别
+## CSS 选择器有哪些
 
 ## 如何实现高度自适应
 
-## 如何实现H5手机端的适配
+## 如何实现 H5 手机端的适配
 
-## Rrem、Flex的区别（Root em）
+## b 和 strong 的区别
 
-## em和px的区别
+## 居中为什么要使用 Transform（为什么不使用 MarginLeft/Top）
 
-## Html语义化的理解
+MarginLeft/Top 都需要宽度和高度才行
 
-## <b>和<strong>的区别
+## Html 语义化的理解
 
+## 清除浮动
 
+1. clear
+
+```js
+// 现代浏览器clearfix方案，不支持IE6/7
+.clearfix:after {
+    display: table;
+    content: " ";
+    clear: both;
+}
+
+// 全浏览器通用的clearfix方案
+// 引入了zoom以支持IE6/7
+.clearfix:after {
+    display: table;
+    content: " ";
+    clear: both;
+}
+.clearfix{
+    *zoom: 1;
+}
+
+// 全浏览器通用的clearfix方案【推荐】
+// 引入了zoom以支持IE6/7
+// 同时加入:before以解决现代浏览器上边距折叠的问题
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: " ";
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix{
+    *zoom: 1;
+}
+```
+
+2. 创建 BFC

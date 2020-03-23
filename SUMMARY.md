@@ -27,11 +27,16 @@
 
 -   [react](./pages/react/index.md)
 
-    -   [react-router](./pages/react/react-router/router.md)
-        -   [route](./pages/react/react-router/route.md)
+    -   [react-router](./pages/react/react-router/index.md)
+        -   [Router](./pages/react/react-router/router.md)
+        -   [Route](./pages/react/react-router/route.md)
         -   [Switch](./pages/react/react-router/Switch.md)
         -   [link](./pages/react/react-router/link.md)
         -   [WithRouter](./pages/react/react-router/WithRouter.md)
+    -   [redux](./pages/react/redux/index.md)
+        -   [createStore](./pages/react/redux/createStore.md)
+        -   [applyMiddleware](./pages/react/redux/applyMiddleware.md)
+        -   [middleware](./pages/react/redux/middleware.md)
 
 -   [history](./pages/history/index.md)
 
@@ -52,6 +57,8 @@
     -   [缓存](./pages/js/location.md)
     -   [数据类型](./pages/js/types.md)
     -   [ES6](./pages/js/es6/index.md)
+
+-   [html 和 css](./pages/css/index.md)
 
 -   [算法](./pages/algorithm/index.md)
 -   [异步](./pages/async/index.md)
