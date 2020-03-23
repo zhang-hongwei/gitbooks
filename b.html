@@ -12,24 +12,35 @@
             // let ary = [1, 2, 3, 4, 5, 6];
             // let num = 0;
             // let tag = true;
-            function insertion_sort(ary) {
+            function merge_sort(ary) {
+                // 采用自上而下的递归方法
                 const { length } = ary;
-                let preIndex, current;
-                for (let i = 1; i < length; i++) {
-                    preIndex = i - 1;
-                    current = ary[i];
-                    while (preIndex >= 0 && ary[preIndex] > current) {
-                        ary[preIndex + 1] = ary[preIndex];
-                        preIndex--;
-                    }
-
-                    ary[preIndex + 1] = current;
+                if (length < 2) {
+                    return ary;
                 }
-
-                return ary;
+                let middle = Math.floor(length / 2),
+                    left = ary.slice(0, middle),
+                    right = ary.slice(middle);
+                return merge(merge_sort(left), merge_sort(right));
             }
 
-            let b = insertion_sort(ary);
+            function merge(left, right) {
+                var result = [];
+
+                while (left.length && right.length) {
+                    if (left[0] <= right[0]) {
+                        result.push(left.shift());
+                    } else {
+                        result.push(right.shift());
+                    }
+                }
+
+                while (left.length) result.push(left.shift());
+                while (right.length) result.push(right.shift());
+                return result;
+            }
+
+            let b = merge_sort(ary);
 
             console.log(b);
 

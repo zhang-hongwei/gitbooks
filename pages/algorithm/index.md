@@ -1,5 +1,9 @@
 # 基本算法
 
+## 非稳定排序算法
+
+## 复杂度
+
 ## 数组排序
 
 ## 1. 冒泡排序
@@ -144,6 +148,36 @@ function insertion_sort(ary) {
 4. 重复步骤 3 直到某一指针达到序列尾；
 
 5. 将另一序列剩下的所有元素直接复制到合并序列尾。
+
+```js
+function merge_sort(ary) {
+    // 采用自上而下的递归方法
+    const { length } = ary;
+    if (length < 2) {
+        return ary;
+    }
+    let middle = Math.floor(length / 2),
+        left = ary.slice(0, middle),
+        right = ary.slice(middle);
+    return merge(merge_sort(left), merge_sort(right));
+}
+
+function merge(left, right) {
+    var result = [];
+
+    while (left.length && right.length) {
+        if (left[0] <= right[0]) {
+            result.push(left.shift());
+        } else {
+            result.push(right.shift());
+        }
+    }
+
+    while (left.length) result.push(left.shift());
+    while (right.length) result.push(right.shift());
+    return result;
+}
+```
 
 ## 6. 快速排序
 
