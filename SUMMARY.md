@@ -36,7 +36,6 @@
     -   [redux](./pages/react/redux/index.md)
         -   [createStore](./pages/react/redux/createStore.md)
         -   [applyMiddleware](./pages/react/redux/applyMiddleware.md)
-        -   [middleware](./pages/react/redux/middleware.md)
 
 -   [history](./pages/history/index.md)
 

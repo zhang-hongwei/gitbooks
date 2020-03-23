@@ -4,6 +4,26 @@
 
 ## 首屏和白屏时间如何计算
 
+1. 白屏时间是指浏览器从响应用户输入网址地址，到浏览器开始显示内容的时间。
+
+    > 白屏时间 = 地址栏输入网址后回车 - 浏览器出现第一个元素  
+    > 影响白屏时间的因素：网络、服务端性能，前端页面结构设计
+
+2. 首屏时间是指浏览器从响应用户输入网络地址，到首屏内容渲染完成的时间。
+
+    > 首屏时间 = 地址栏输入网址后回车 - 浏览器第一屏渲染完成  
+    > 影响首屏时间的因素：白屏时间，资源下载执行时间
+
+
+<!-- 使用performance.timing对象里面的数据进行计算操作就能得出时间啦。
+公式如下：
+DNS解析时间： domainLookupEnd - domainLookupStart
+TCP建立连接时间： connectEnd - connectStart
+白屏时间： responseStart - navigationStart
+dom渲染完成时间： domContentLoadedEventEnd - navigationStart
+页面onload时间： loadEventEnd - navigationStart -->
+
+
 ## 动画的了解
 
 ## Transform 动画和直接使用 Left、Top 改变位置有什么优缺点

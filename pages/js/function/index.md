@@ -189,24 +189,13 @@ console.log(curriedAdd(3));
 -   抢购疯狂点击（mousedown）
 
 ```js
-// 实现：
-var processor = {
-    timeoutId: null,
-    //实际进行处理的方法
-    performProcessing: function() {
-        //实际执行的代码
-    },
-    //初始处理调用的方法
-    process: function() {
-        clearTimeout(this.timeoutId);
-        var that = this;
-        this.timeoutId = setTimeout(function() {
-            that.performProcessing();
-        }, 100);
-    }
-};
-//尝试开始执行
-processor.process();
+function throttle(method, context) {
+    let method = null;
+    clearTimeout(method.tId);
+    method.tId = setTimeout(function() {
+        method.call(context);
+    }, 100);
+}
 ```
 
 ## 函数防抖(debounce)
