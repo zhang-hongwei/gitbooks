@@ -180,17 +180,21 @@ console.log(curriedAdd(3));
 
 ## 函数节流(throttle)
 
-函数节流就是预定一个函数只有在大于等于执行周期时才执行，周期内调用不执行。
+> 函数节流背后的基本思想是指，某些代码不可以在没有间断的情况连续重复执行。
+> 就是预定一个函数只有在大于等于执行周期时才执行，周期内调用不执行。
 
-场景：
+1. 第一次调用函数，创建一个定时器，在指定的时间间隔之后运行代码。
+2. 当第二次调用该函数时，它会清除前一次的定时器并设置另一个。
+3. 如果前一个定时器已经执行过了，这个操作就没有任何意义。然而，如果前一个定时器尚未执行，其实就是将其替换为一个新的定时器。
+4. 目的是只有在执行函数的请求停止了一段时间之后才执行。以下是该模式的基本形式：
+5. 场景：
 
--   窗口调整（resize）
--   页面滚动（scroll）
--   抢购疯狂点击（mousedown）
+    - 窗口调整（resize）
+    - 页面滚动（scroll）
+    - 抢购疯狂点击（mousedown）
 
 ```js
 function throttle(method, context) {
-    let method = null;
     clearTimeout(method.tId);
     method.tId = setTimeout(function() {
         method.call(context);

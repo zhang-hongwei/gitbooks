@@ -17,11 +17,15 @@
 6. 无法拷贝对象的循环应用(即 obj[key] = obj)
 
 ```js
+// 1 JSON
+function cloneJSON(source) {
+    return JSON.parse(JSON.stringify(source));
+}
 function deepClone(obj) {
     let cloneObj = {}; //在堆内存中新建一个对象
     for (let key in obj) {
         //遍历参数的键
-        if (typeof obj[key] === 'object') {
+        if (typeof obj[key] === "object") {
             cloneObj[key] = deepClone(obj[key]); //值是对象就再次调用函数
         } else {
             cloneObj[key] = obj[key]; //基本类型直接复制值
