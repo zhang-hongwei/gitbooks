@@ -50,7 +50,7 @@ x; // null
 ```js
 function foo() {
     setTimeout(() => {
-        console.log("id:", this.id);
+        console.log('id:', this.id);
     }, 100);
 }
 
@@ -71,8 +71,8 @@ function Timer() {
 
 var timer = new Timer();
 
-setTimeout(() => console.log("s1: ", timer.s1), 3100);
-setTimeout(() => console.log("s2: ", timer.s2), 3100);
+setTimeout(() => console.log('s1: ', timer.s1), 3100);
+setTimeout(() => console.log('s2: ', timer.s2), 3100);
 // s1: 3
 // s2: 0
 ```
@@ -90,9 +90,9 @@ const cat = {
 };
 
 // 2. 第二个场合是需要动态this的时候，也不应使用箭头函数。
-var button = document.getElementById("press");
-button.addEventListener("click", () => {
-    this.classList.toggle("on");
+var button = document.getElementById('press');
+button.addEventListener('click', () => {
+    this.classList.toggle('on');
 });
 
 // 3. 逻辑复杂函数
@@ -279,3 +279,27 @@ async 函数的返回值是 Promise 对象，这比 Generator 函数的返回值
 -   数组的键名是数字，但是 for...in 循环是以字符串作为键名“0”、“1”、“2”等等。
 -   for...in 循环不仅遍历数字键名，还会遍历手动添加的其他键，甚至包括原型链上的键。
 -   某些情况下，for...in 循环会以任意顺序遍历键名。
+
+## Set
+
+1. 类似于数组，但是成员的值都是唯一的，没有重复的值。
+2. 方法
+    - add
+    - delete
+    - has
+    - clea
+    - size
+
+## WeakSet
+
+1. WeakSet 的成员只能是对象，而不能是其他类型的值。
+2. WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用，也就是说，如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象还存在于 WeakSet 之中。
+
+## Map
+
+1. 本质上是键值对的集合（Hash 结构），但是传统上只能用字符串当作键。这给它的使用带来了很大的限制。
+
+## WeakMap
+
+1. 首先，WeakMap 只接受对象作为键名（null 除外），不接受其他类型的值作为键名。
+2. 其次，WeakMap 的键名所指向的对象，不计入垃圾回收机制。
