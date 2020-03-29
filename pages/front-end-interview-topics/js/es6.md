@@ -13,3 +13,8 @@
 ## ES6 新的特性
 
 ## ES6 中 let 块作用域是怎么实现的
+
+## Promise
+
+1. 什么是 Promise
+2. Promise 的作用，解决了什么问题

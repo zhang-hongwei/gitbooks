@@ -115,6 +115,13 @@ dom渲染完成时间： domContentLoadedEventEnd - navigationStart
 
 > 利用清除可以设置元素禁止浮动元素出现在它的左侧、右侧甚至是双侧。
 
+## 介绍 flex 布局
+
+1. 什么是 flex 布局
+2. flex 构成
+    - 两个轴
+    - 两种属性
+
 ## Flex 如何实现上下两行，上行高度自适应，下行高度 200px
 
 ```js
@@ -173,7 +180,7 @@ flex: 1
 
     ```js
     ~(function() {
-        window.addEventListener("resize", computed);
+        window.addEventListener('resize', computed);
         // 添加事件，当设备尺寸改变，就执行computed函数
         computed();
         function computed() {
@@ -184,7 +191,7 @@ flex: 1
             if (deviceW > 640) return;
             // 当前案例是以640的设计稿为例，判断，若是设备尺寸超过640，就不在执行computed
             document.documentElement.style.fontSize =
-                (deviceW / 640) * 100 + "px";
+                (deviceW / 640) * 100 + 'px';
             // 100 这里的100是在屏幕尺寸为640的时候，html字体大小为100px，之所以设置100，是为了便于计算
             // 设置html的字体大小  这里是以640的设计稿为基准，当我们使用的设备宽度（deviceW）刚好为640的时候，html的  字体大小为100px; 当设备大小改变，小于640的时候， 就会触发resize函数，computed执行，动态的获取设备的宽度，然后除以640，就能计算出当前设备大小是原设计稿的百分之多少，然后乘以100，就能计算出当前屏幕宽度下html的字体大小为多少
 

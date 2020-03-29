@@ -107,6 +107,7 @@ button.addEventListener('click', () => {
 ## 8. Promise
 
 > Promise 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值.
+> Promise 本质上可以认为是回调函数的另外一种展现形式，这种展示更优雅，更易阅读
 
 ### 8.1 基本使用
 
