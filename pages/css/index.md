@@ -193,3 +193,63 @@
 4. ⚠️ `注意有设定 float 和 position=absolute 的元素不会产生外边距重叠行为。`
 
 ## rem,em,vm,px 之间的区别
+
+## DOM 回流/重绘
+
+> 当浏览器必须重新处理和绘制部分或全部页面时，回流就会发生，例如当一个交互式站点更新后。
+
+### 浏览器渲染过程
+
+![浏览器渲染过程](../imgs/browserRender.png)
+
+1. 浏览器使用流式布局模型 (Flow Based Layout)
+2. 浏览器会把 HTML 解析成 DOM，把 CSS 解析成 CSSOM，DOM 和 CSSOM 合并就产生了 Render Tree
+3. 有了 RenderTree，我们就知道了所有节点的样式，然后计算他们在页面上的大小和位置，最后把节点绘制到页面上
+4. 由于浏览器使用流式布局，对 Render Tree 的计算通常只需要遍历一次就可以完成，但 table 及其内部元素除外，他们可能需要多次计算，通常要花 3 倍于同等元素的时间，这也是为什么要避免使用 table 布局的原因之一
+
+### 回流 (Reflow)
+
+> 当 Render Tree 中部分或全部元素的尺寸、结构、或某些属性发生改变时，浏览器重新渲染部分或全部文档的过程称为回流。
+
+1. 会导致回流的操作:
+
+    - 页面首次渲染
+    - 浏览器窗口大小发生改变
+    - 元素尺寸或位置发生改变
+    - 元素内容变化（文字数量或图片大小等等）
+    - 元素字体大小变化
+    - 添加或者删除可见的 DOM 元素
+    - 激活 CSS 伪类（例如：:hover）
+    - 查询某些属性或调用某些方法
+
+2. 一些常用且会导致回流的属性和方法：
+
+    - clientWidth、clientHeight、clientTop、clientLeft
+    - offsetWidth、offsetHeight、offsetTop、offsetLeft
+    - scrollWidth、scrollHeight、scrollTop、scrollLeft
+    - scrollIntoView()、scrollIntoViewIfNeeded()
+    - getComputedStyle()
+    - getBoundingClientRect()
+    - scrollTo()
+
+### 重绘 (Repaint)
+
+> 当页面中元素样式的改变并不影响它在文档流中的位置时（例如：color、background-color、visibility 等），浏览器会将新样式赋予给元素并重新绘制它，这个过程称为重绘。
+
+### 避免
+
+1. CSS
+
+    - 避免使用 table 布局。
+    - 尽可能在 DOM 树的最末端改变 class。
+    - 避免设置多层内联样式。
+    - 将动画效果应用到 position 属性为 absolute 或 fixed 的元素上。
+    - 避免使用 CSS 表达式（例如：calc()）。
+
+2. JavaScript
+
+    - 避免频繁操作样式，最好一次性重写 style 属性，或者将样式列表定义为 class 并一次性更改 class 属性。
+    - 避免频繁操作 DOM，创建一个 documentFragment，在它上面应用所有 DOM 操作，最后再把它添加到文档中。
+    - 也可以先为元素设置 display: none，操作结束后再把它显示出来。因为在 display 属性为 none 的元素上进行 - 的 DOM 操作不会引发回流和重绘。
+    - 避免频繁读取会引发回流/重绘的属性，如果确实需要多次使用，就用一个变量缓存起来。
+    - 对具有复杂动画的元素使用绝对定位，使它脱离文档流，否则会引起父元素及后续元素频繁回流。

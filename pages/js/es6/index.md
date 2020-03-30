@@ -50,7 +50,7 @@ x; // null
 ```js
 function foo() {
     setTimeout(() => {
-        console.log('id:', this.id);
+        console.log("id:", this.id);
     }, 100);
 }
 
@@ -71,8 +71,8 @@ function Timer() {
 
 var timer = new Timer();
 
-setTimeout(() => console.log('s1: ', timer.s1), 3100);
-setTimeout(() => console.log('s2: ', timer.s2), 3100);
+setTimeout(() => console.log("s1: ", timer.s1), 3100);
+setTimeout(() => console.log("s2: ", timer.s2), 3100);
 // s1: 3
 // s2: 0
 ```
@@ -90,9 +90,9 @@ const cat = {
 };
 
 // 2. 第二个场合是需要动态this的时候，也不应使用箭头函数。
-var button = document.getElementById('press');
-button.addEventListener('click', () => {
-    this.classList.toggle('on');
+var button = document.getElementById("press");
+button.addEventListener("click", () => {
+    this.classList.toggle("on");
 });
 
 // 3. 逻辑复杂函数
@@ -263,6 +263,11 @@ function spawn(genF) {
 async 函数的返回值是 Promise 对象，这比 Generator 函数的返回值是 Iterator 对象方便多了。你可以用 then 方法指定下一步的操作。
 
 ## 12. Class
+
+1. class
+2. super
+    > super 关键字，它在这里表示`父类的构造函数`，用来新建父类的 this 对象。
+    > 这是因为子类自己的 this 对象，必须先通过父类的构造函数完成塑造，得到与父类同样的实例属性和方法，然后再对其进行加工，加上子类自己的实例属性和方法。如果不调用 super 方法，子类就得不到 this 对象。
 
 ## 13. Module
 
