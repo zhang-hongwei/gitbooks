@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function fn1() {
+                let a = 5;
+                fn2(a);
+                return a;
+            }
+            function fn2(a) {
+                setTimeout(function time(){
+                    console.log(a)
+                },2000)
+                fn3();
+
+                return a;
+            }
+
+            function fn3() {
+                setTimeout(function time1(){
+                    console.log(1123)
+                },3000)
+            }
+
+            fn1();
+        </script>
+    </body>
+</html>
