@@ -16,3 +16,10 @@
     - 400
 4. 服务器错误
     - 500
+
+## 10. HTTP 和 HTTPS 有何区别
+
+1. HTTPS 使用 443 端口，而 HTTP 使用 80
+2. HTTPS 需要申请证书
+3. HTTP 是超文本传输协议，是明文传输；HTTPS 是经过 SSL 加密的协议，传输更安全
+4. HTTPS 比 HTTP 慢，因为 HTTPS 除了 TCP 握手的三个包，还要加上 SSL 握手的九个包
