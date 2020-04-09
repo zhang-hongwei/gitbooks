@@ -1,0 +1,1317 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>createHasHistory · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../js/" />
+    
+    
+    <link rel="prev" href="createBrowserHistory.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../front-end-interview-topics/">
+            
+                <a href="../front-end-interview-topics/">
+            
+                    
+                    面试题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../front-end-interview-topics/html-css/">
+            
+                <a href="../front-end-interview-topics/html-css/">
+            
+                    
+                    html 和 css
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../front-end-interview-topics/js/">
+            
+                <a href="../front-end-interview-topics/js/">
+            
+                    
+                    JavaScript
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../front-end-interview-topics/js/object.html">
+            
+                <a href="../front-end-interview-topics/js/object.html">
+            
+                    
+                    object
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../front-end-interview-topics/js/function.html">
+            
+                <a href="../front-end-interview-topics/js/function.html">
+            
+                    
+                    function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../front-end-interview-topics/js/this.html">
+            
+                <a href="../front-end-interview-topics/js/this.html">
+            
+                    
+                    this
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../front-end-interview-topics/js/operator.html">
+            
+                <a href="../front-end-interview-topics/js/operator.html">
+            
+                    
+                    操作符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../front-end-interview-topics/js/storage.html">
+            
+                <a href="../front-end-interview-topics/js/storage.html">
+            
+                    
+                    前端本地存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../front-end-interview-topics/js/cross.html">
+            
+                <a href="../front-end-interview-topics/js/cross.html">
+            
+                    
+                    跨域
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="../front-end-interview-topics/js/inheritance.html">
+            
+                <a href="../front-end-interview-topics/js/inheritance.html">
+            
+                    
+                    继承和原型链
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../front-end-interview-topics/react/">
+            
+                <a href="../front-end-interview-topics/react/">
+            
+                    
+                    React
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../front-end-interview-topics/vue/index.md">
+            
+                <span>
+            
+                    
+                    Vue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../front-end-interview-topics/async/">
+            
+                <a href="../front-end-interview-topics/async/">
+            
+                    
+                    异步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../front-end-interview-topics/optimizing/">
+            
+                <a href="../front-end-interview-topics/optimizing/">
+            
+                    
+                    性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../front-end-interview-topics/">
+            
+                <a href="../front-end-interview-topics/">
+            
+                    
+                    跨域
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../front-end-interview-topics/unit-testing/">
+            
+                <a href="../front-end-interview-topics/unit-testing/">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../front-end-interview-topics/module/">
+            
+                <a href="../front-end-interview-topics/module/">
+            
+                    
+                    模块化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../front-end-interview-topics/webpack/">
+            
+                <a href="../front-end-interview-topics/webpack/">
+            
+                    
+                    webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../front-end-interview-topics/unit-testing/">
+            
+                <a href="../front-end-interview-topics/unit-testing/">
+            
+                    
+                    node
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.11.1" data-path="../front-end-interview-topics/unit-testing/">
+            
+                <a href="../front-end-interview-topics/unit-testing/">
+            
+                    
+                    koa
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11.2" data-path="../front-end-interview-topics/unit-testing/">
+            
+                <a href="../front-end-interview-topics/unit-testing/">
+            
+                    
+                    express
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../react/">
+            
+                <a href="../react/">
+            
+                    
+                    react
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../react/react-router/">
+            
+                <a href="../react/react-router/">
+            
+                    
+                    react-router
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../react/react-router/router.html">
+            
+                <a href="../react/react-router/router.html">
+            
+                    
+                    Router
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../react/react-router/route.html">
+            
+                <a href="../react/react-router/route.html">
+            
+                    
+                    Route
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../react/react-router/Switch.html">
+            
+                <a href="../react/react-router/Switch.html">
+            
+                    
+                    Switch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="../react/react-router/link.html">
+            
+                <a href="../react/react-router/link.html">
+            
+                    
+                    link
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="../react/react-router/WithRouter.html">
+            
+                <a href="../react/react-router/WithRouter.html">
+            
+                    
+                    WithRouter
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../react/redux/">
+            
+                <a href="../react/redux/">
+            
+                    
+                    redux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../react/redux/createStore.html">
+            
+                <a href="../react/redux/createStore.html">
+            
+                    
+                    createStore
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../react/redux/applyMiddleware.html">
+            
+                <a href="../react/redux/applyMiddleware.html">
+            
+                    
+                    applyMiddleware
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    history
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="createBrowserHistory.html">
+            
+                <a href="createBrowserHistory.html">
+            
+                    
+                    createBrowserHistory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.2" data-path="createHashHistory.html">
+            
+                <a href="createHashHistory.html">
+            
+                    
+                    createHasHistory
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../js/">
+            
+                <a href="../js/">
+            
+                    
+                    js
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../js/BOM/">
+            
+                <a href="../js/BOM/">
+            
+                    
+                    BOM 对象
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" data-path="../js/BOM/history.html">
+            
+                <a href="../js/BOM/history.html">
+            
+                    
+                    history 对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../js/event.html">
+            
+                <a href="../js/event.html">
+            
+                    
+                    事件模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../js/inheritance.html">
+            
+                <a href="../js/inheritance.html">
+            
+                    
+                    继承和原型链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../js/array.html">
+            
+                <a href="../js/array.html">
+            
+                    
+                    数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../js/function/">
+            
+                <a href="../js/function/">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../js/operator.html">
+            
+                <a href="../js/operator.html">
+            
+                    
+                    操作符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../js/location.html">
+            
+                <a href="../js/location.html">
+            
+                    
+                    缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../js/types.html">
+            
+                <a href="../js/types.html">
+            
+                    
+                    数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../js/es6/">
+            
+                <a href="../js/es6/">
+            
+                    
+                    ES6
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../css/">
+            
+                <a href="../css/">
+            
+                    
+                    html 和 css
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../algorithm/">
+            
+                <a href="../algorithm/">
+            
+                    
+                    算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../async/">
+            
+                <a href="../async/">
+            
+                    
+                    异步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../module/">
+            
+                <a href="../module/">
+            
+                    
+                    模块化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../zhanghongwei.html">
+            
+                <a href="../zhanghongwei.html">
+            
+                    
+                    简历
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >createHasHistory</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="createhashhistory">createHashHistory</h1>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> HashChangeEvent = <span class="hljs-string">&quot;hashchange&quot;</span>;
+
+<span class="hljs-keyword">const</span> HashPathCoders = {
+    hashbang: {
+        encodePath: path =&gt;
+            path.charAt(<span class="hljs-number">0</span>) === <span class="hljs-string">&quot;!&quot;</span> ? path : <span class="hljs-string">&quot;!/&quot;</span> + stripLeadingSlash(path),
+        decodePath: path =&gt; (path.charAt(<span class="hljs-number">0</span>) === <span class="hljs-string">&quot;!&quot;</span> ? path.substr(<span class="hljs-number">1</span>) : path)
+    },
+    noslash: {
+        encodePath: stripLeadingSlash,
+        decodePath: addLeadingSlash
+    },
+    slash: {
+        encodePath: addLeadingSlash,
+        decodePath: addLeadingSlash
+    }
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">stripHash</span>(<span class="hljs-params">url</span>) </span>{
+    <span class="hljs-keyword">const</span> hashIndex = url.indexOf(<span class="hljs-string">&quot;#&quot;</span>);
+    <span class="hljs-keyword">return</span> hashIndex === <span class="hljs-number">-1</span> ? url : url.slice(<span class="hljs-number">0</span>, hashIndex);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getHashPath</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// We can&apos;t use window.location.hash here because it&apos;s not</span>
+    <span class="hljs-comment">// consistent across browsers - Firefox will pre-decode it!</span>
+    <span class="hljs-keyword">const</span> href = <span class="hljs-built_in">window</span>.location.href;
+    <span class="hljs-keyword">const</span> hashIndex = href.indexOf(<span class="hljs-string">&quot;#&quot;</span>);
+    <span class="hljs-keyword">return</span> hashIndex === <span class="hljs-number">-1</span> ? <span class="hljs-string">&quot;&quot;</span> : href.substring(hashIndex + <span class="hljs-number">1</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pushHashPath</span>(<span class="hljs-params">path</span>) </span>{
+    <span class="hljs-built_in">window</span>.location.hash = path;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">replaceHashPath</span>(<span class="hljs-params">path</span>) </span>{
+    <span class="hljs-built_in">window</span>.location.replace(stripHash(<span class="hljs-built_in">window</span>.location.href) + <span class="hljs-string">&quot;#&quot;</span> + path);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createHashHistory</span>(<span class="hljs-params">props = {}</span>) </span>{
+    invariant(canUseDOM, <span class="hljs-string">&quot;Hash history needs a DOM&quot;</span>);
+
+    <span class="hljs-keyword">const</span> globalHistory = <span class="hljs-built_in">window</span>.history;
+    <span class="hljs-keyword">const</span> canGoWithoutReload = supportsGoWithoutReloadUsingHash();
+
+    <span class="hljs-keyword">const</span> { getUserConfirmation = getConfirmation, hashType = <span class="hljs-string">&quot;slash&quot;</span> } = props;
+    <span class="hljs-keyword">const</span> basename = props.basename
+        ? stripTrailingSlash(addLeadingSlash(props.basename))
+        : <span class="hljs-string">&quot;&quot;</span>;
+
+    <span class="hljs-keyword">const</span> { encodePath, decodePath } = HashPathCoders[hashType];
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getDOMLocation</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">let</span> path = decodePath(getHashPath());
+
+        warning(
+            !basename || hasBasename(path, basename),
+            <span class="hljs-string">&quot;You are attempting to use a basename on a page whose URL path does not begin &quot;</span> +
+                <span class="hljs-string">&apos;with the basename. Expected path &quot;&apos;</span> +
+                path +
+                <span class="hljs-string">&apos;&quot; to begin with &quot;&apos;</span> +
+                basename +
+                <span class="hljs-string">&apos;&quot;.&apos;</span>
+        );
+
+        <span class="hljs-keyword">if</span> (basename) path = stripBasename(path, basename);
+
+        <span class="hljs-keyword">return</span> createLocation(path);
+    }
+
+    <span class="hljs-keyword">const</span> transitionManager = createTransitionManager();
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setState</span>(<span class="hljs-params">nextState</span>) </span>{
+        <span class="hljs-built_in">Object</span>.assign(history, nextState);
+        history.length = globalHistory.length;
+        transitionManager.notifyListeners(history.location, history.action);
+    }
+
+    <span class="hljs-keyword">let</span> forceNextPop = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">let</span> ignorePath = <span class="hljs-literal">null</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">locationsAreEqual</span>(<span class="hljs-params">a, b</span>) </span>{
+        <span class="hljs-keyword">return</span> (
+            a.pathname === b.pathname &amp;&amp;
+            a.search === b.search &amp;&amp;
+            a.hash === b.hash
+        );
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleHashChange</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">const</span> path = getHashPath();
+        <span class="hljs-keyword">const</span> encodedPath = encodePath(path);
+
+        <span class="hljs-keyword">if</span> (path !== encodedPath) {
+            <span class="hljs-comment">// Ensure we always have a properly-encoded hash.</span>
+            replaceHashPath(encodedPath);
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">const</span> location = getDOMLocation();
+            <span class="hljs-keyword">const</span> prevLocation = history.location;
+
+            <span class="hljs-keyword">if</span> (!forceNextPop &amp;&amp; locationsAreEqual(prevLocation, location))
+                <span class="hljs-keyword">return</span>; <span class="hljs-comment">// A hashchange doesn&apos;t always == location change.</span>
+
+            <span class="hljs-keyword">if</span> (ignorePath === createPath(location)) <span class="hljs-keyword">return</span>; <span class="hljs-comment">// Ignore this change; we already setState in push/replace.</span>
+
+            ignorePath = <span class="hljs-literal">null</span>;
+
+            handlePop(location);
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handlePop</span>(<span class="hljs-params">location</span>) </span>{
+        <span class="hljs-keyword">if</span> (forceNextPop) {
+            forceNextPop = <span class="hljs-literal">false</span>;
+            setState();
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">const</span> action = <span class="hljs-string">&quot;POP&quot;</span>;
+
+            transitionManager.confirmTransitionTo(
+                location,
+                action,
+                getUserConfirmation,
+                ok =&gt; {
+                    <span class="hljs-keyword">if</span> (ok) {
+                        setState({ action, location });
+                    } <span class="hljs-keyword">else</span> {
+                        revertPop(location);
+                    }
+                }
+            );
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">revertPop</span>(<span class="hljs-params">fromLocation</span>) </span>{
+        <span class="hljs-keyword">const</span> toLocation = history.location;
+
+        <span class="hljs-comment">// <span class="hljs-doctag">TODO:</span> We could probably make this more reliable by</span>
+        <span class="hljs-comment">// keeping a list of paths we&apos;ve seen in sessionStorage.</span>
+        <span class="hljs-comment">// Instead, we just default to 0 for paths we don&apos;t know.</span>
+
+        <span class="hljs-keyword">let</span> toIndex = allPaths.lastIndexOf(createPath(toLocation));
+
+        <span class="hljs-keyword">if</span> (toIndex === <span class="hljs-number">-1</span>) toIndex = <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">let</span> fromIndex = allPaths.lastIndexOf(createPath(fromLocation));
+
+        <span class="hljs-keyword">if</span> (fromIndex === <span class="hljs-number">-1</span>) fromIndex = <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">const</span> delta = toIndex - fromIndex;
+
+        <span class="hljs-keyword">if</span> (delta) {
+            forceNextPop = <span class="hljs-literal">true</span>;
+            go(delta);
+        }
+    }
+
+    <span class="hljs-comment">// Ensure the hash is encoded properly before doing anything else.</span>
+    <span class="hljs-keyword">const</span> path = getHashPath();
+    <span class="hljs-keyword">const</span> encodedPath = encodePath(path);
+
+    <span class="hljs-keyword">if</span> (path !== encodedPath) replaceHashPath(encodedPath);
+
+    <span class="hljs-keyword">const</span> initialLocation = getDOMLocation();
+    <span class="hljs-keyword">let</span> allPaths = [createPath(initialLocation)];
+
+    <span class="hljs-comment">// Public interface</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createHref</span>(<span class="hljs-params">location</span>) </span>{
+        <span class="hljs-keyword">const</span> baseTag = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&quot;base&quot;</span>);
+        <span class="hljs-keyword">let</span> href = <span class="hljs-string">&quot;&quot;</span>;
+        <span class="hljs-keyword">if</span> (baseTag &amp;&amp; baseTag.getAttribute(<span class="hljs-string">&quot;href&quot;</span>)) {
+            href = stripHash(<span class="hljs-built_in">window</span>.location.href);
+        }
+        <span class="hljs-keyword">return</span> href + <span class="hljs-string">&quot;#&quot;</span> + encodePath(basename + createPath(location));
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">push</span>(<span class="hljs-params">path, state</span>) </span>{
+        warning(
+            state === <span class="hljs-literal">undefined</span>,
+            <span class="hljs-string">&quot;Hash history cannot push state; it is ignored&quot;</span>
+        );
+
+        <span class="hljs-keyword">const</span> action = <span class="hljs-string">&quot;PUSH&quot;</span>;
+        <span class="hljs-keyword">const</span> location = createLocation(
+            path,
+            <span class="hljs-literal">undefined</span>,
+            <span class="hljs-literal">undefined</span>,
+            history.location
+        );
+
+        transitionManager.confirmTransitionTo(
+            location,
+            action,
+            getUserConfirmation,
+            ok =&gt; {
+                <span class="hljs-keyword">if</span> (!ok) <span class="hljs-keyword">return</span>;
+
+                <span class="hljs-keyword">const</span> path = createPath(location);
+                <span class="hljs-keyword">const</span> encodedPath = encodePath(basename + path);
+                <span class="hljs-keyword">const</span> hashChanged = getHashPath() !== encodedPath;
+
+                <span class="hljs-keyword">if</span> (hashChanged) {
+                    <span class="hljs-comment">// We cannot tell if a hashchange was caused by a PUSH, so we&apos;d</span>
+                    <span class="hljs-comment">// rather setState here and ignore the hashchange. The caveat here</span>
+                    <span class="hljs-comment">// is that other hash histories in the page will consider it a POP.</span>
+                    ignorePath = path;
+                    pushHashPath(encodedPath);
+
+                    <span class="hljs-keyword">const</span> prevIndex = allPaths.lastIndexOf(
+                        createPath(history.location)
+                    );
+                    <span class="hljs-keyword">const</span> nextPaths = allPaths.slice(<span class="hljs-number">0</span>, prevIndex + <span class="hljs-number">1</span>);
+
+                    nextPaths.push(path);
+                    allPaths = nextPaths;
+
+                    setState({ action, location });
+                } <span class="hljs-keyword">else</span> {
+                    warning(
+                        <span class="hljs-literal">false</span>,
+                        <span class="hljs-string">&quot;Hash history cannot PUSH the same path; a new entry will not be added to the history stack&quot;</span>
+                    );
+
+                    setState();
+                }
+            }
+        );
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">replace</span>(<span class="hljs-params">path, state</span>) </span>{
+        warning(
+            state === <span class="hljs-literal">undefined</span>,
+            <span class="hljs-string">&quot;Hash history cannot replace state; it is ignored&quot;</span>
+        );
+
+        <span class="hljs-keyword">const</span> action = <span class="hljs-string">&quot;REPLACE&quot;</span>;
+        <span class="hljs-keyword">const</span> location = createLocation(
+            path,
+            <span class="hljs-literal">undefined</span>,
+            <span class="hljs-literal">undefined</span>,
+            history.location
+        );
+
+        transitionManager.confirmTransitionTo(
+            location,
+            action,
+            getUserConfirmation,
+            ok =&gt; {
+                <span class="hljs-keyword">if</span> (!ok) <span class="hljs-keyword">return</span>;
+
+                <span class="hljs-keyword">const</span> path = createPath(location);
+                <span class="hljs-keyword">const</span> encodedPath = encodePath(basename + path);
+                <span class="hljs-keyword">const</span> hashChanged = getHashPath() !== encodedPath;
+
+                <span class="hljs-keyword">if</span> (hashChanged) {
+                    <span class="hljs-comment">// We cannot tell if a hashchange was caused by a REPLACE, so we&apos;d</span>
+                    <span class="hljs-comment">// rather setState here and ignore the hashchange. The caveat here</span>
+                    <span class="hljs-comment">// is that other hash histories in the page will consider it a POP.</span>
+                    ignorePath = path;
+                    replaceHashPath(encodedPath);
+                }
+
+                <span class="hljs-keyword">const</span> prevIndex = allPaths.indexOf(
+                    createPath(history.location)
+                );
+
+                <span class="hljs-keyword">if</span> (prevIndex !== <span class="hljs-number">-1</span>) allPaths[prevIndex] = path;
+
+                setState({ action, location });
+            }
+        );
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">go</span>(<span class="hljs-params">n</span>) </span>{
+        warning(
+            canGoWithoutReload,
+            <span class="hljs-string">&quot;Hash history go(n) causes a full page reload in this browser&quot;</span>
+        );
+
+        globalHistory.go(n);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">goBack</span>(<span class="hljs-params"></span>) </span>{
+        go(<span class="hljs-number">-1</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">goForward</span>(<span class="hljs-params"></span>) </span>{
+        go(<span class="hljs-number">1</span>);
+    }
+
+    <span class="hljs-keyword">let</span> listenerCount = <span class="hljs-number">0</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkDOMListeners</span>(<span class="hljs-params">delta</span>) </span>{
+        listenerCount += delta;
+
+        <span class="hljs-keyword">if</span> (listenerCount === <span class="hljs-number">1</span> &amp;&amp; delta === <span class="hljs-number">1</span>) {
+            <span class="hljs-built_in">window</span>.addEventListener(HashChangeEvent, handleHashChange);
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (listenerCount === <span class="hljs-number">0</span>) {
+            <span class="hljs-built_in">window</span>.removeEventListener(HashChangeEvent, handleHashChange);
+        }
+    }
+
+    <span class="hljs-keyword">let</span> isBlocked = <span class="hljs-literal">false</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">block</span>(<span class="hljs-params">prompt = false</span>) </span>{
+        <span class="hljs-keyword">const</span> unblock = transitionManager.setPrompt(prompt);
+
+        <span class="hljs-keyword">if</span> (!isBlocked) {
+            checkDOMListeners(<span class="hljs-number">1</span>);
+            isBlocked = <span class="hljs-literal">true</span>;
+        }
+
+        <span class="hljs-keyword">return</span> () =&gt; {
+            <span class="hljs-keyword">if</span> (isBlocked) {
+                isBlocked = <span class="hljs-literal">false</span>;
+                checkDOMListeners(<span class="hljs-number">-1</span>);
+            }
+
+            <span class="hljs-keyword">return</span> unblock();
+        };
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">listen</span>(<span class="hljs-params">listener</span>) </span>{
+        <span class="hljs-keyword">const</span> unlisten = transitionManager.appendListener(listener);
+        checkDOMListeners(<span class="hljs-number">1</span>);
+
+        <span class="hljs-keyword">return</span> () =&gt; {
+            checkDOMListeners(<span class="hljs-number">-1</span>);
+            unlisten();
+        };
+    }
+
+    <span class="hljs-keyword">const</span> history = {
+        length: globalHistory.length,
+        action: <span class="hljs-string">&quot;POP&quot;</span>,
+        location: initialLocation,
+        createHref,
+        push,
+        replace,
+        go,
+        goBack,
+        goForward,
+        block,
+        listen
+    };
+
+    <span class="hljs-keyword">return</span> history;
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="createBrowserHistory.html" class="navigation navigation-prev " aria-label="Previous page: createBrowserHistory">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../js/" class="navigation navigation-next " aria-label="Next page: js">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"createHasHistory","level":"1.4.2","depth":2,"next":{"title":"js","level":"1.5","depth":1,"path":"pages/js/index.md","ref":"./pages/js/index.md","articles":[{"title":"BOM 对象","level":"1.5.1","depth":2,"path":"pages/js/BOM/index.md","ref":"./pages/js/BOM/index.md","articles":[{"title":"history 对象","level":"1.5.1.1","depth":3,"path":"pages/js/BOM/history.md","ref":"./pages/js/BOM/history.md","articles":[]}]},{"title":"事件模型","level":"1.5.2","depth":2,"path":"pages/js/event.md","ref":"./pages/js/event.md","articles":[]},{"title":"继承和原型链","level":"1.5.3","depth":2,"path":"pages/js/inheritance.md","ref":"./pages/js/inheritance.md","articles":[]},{"title":"数组","level":"1.5.4","depth":2,"path":"pages/js/array.md","ref":"./pages/js/array.md","articles":[]},{"title":"函数","level":"1.5.5","depth":2,"path":"pages/js/function/index.md","ref":"./pages/js/function/index.md","articles":[]},{"title":"操作符","level":"1.5.6","depth":2,"path":"pages/js/operator.md","ref":"./pages/js/operator.md","articles":[]},{"title":"缓存","level":"1.5.7","depth":2,"path":"pages/js/location.md","ref":"./pages/js/location.md","articles":[]},{"title":"数据类型","level":"1.5.8","depth":2,"path":"pages/js/types.md","ref":"./pages/js/types.md","articles":[]},{"title":"ES6","level":"1.5.9","depth":2,"path":"pages/js/es6/index.md","ref":"./pages/js/es6/index.md","articles":[]}]},"previous":{"title":"createBrowserHistory","level":"1.4.1","depth":2,"path":"pages/history/createBrowserHistory.md","ref":"./pages/history/createBrowserHistory.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","back-to-top-button","code","splitter"],"root":"./","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"pages/history/createHashHistory.md","mtime":"2020-03-16T01:49:11.412Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2020-03-30T03:13:34.825Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
