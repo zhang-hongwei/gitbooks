@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <script>
-            function fn1() {
-                let a = 5;
-                fn2(a);
-                return a;
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function quickSort(ary) {
+
+            const {
+                length
+            } = ary;
+            if (length < 2) return ary;
+            let basis = ary[0];
+            let left = []
+            let right = []
+
+            for (let i = 1; i < length; i++) {
+                ary[i] < basis ? left.push(ary[i]) : right.push(ary[i])
             }
-            function fn2(a) {
-                setTimeout(function time(){
-                    console.log(a)
-                },2000)
-                fn3();
+            return quickSort(left).concat(basis, quickSort(right))
 
-                return a;
-            }
 
-            function fn3() {
-                setTimeout(function time1(){
-                    console.log(1123)
-                },3000)
-            }
+        }
 
-            fn1();
 
-            \u{26A0}
-        </script>
-    </body>
+        let ary = quickSort([22, 52, 2, 8, 3, 21, 78, 546, 2, 4, 76, 8, 9])
+        console.log(ary)
+    </script>
+</body>
+
 </html>

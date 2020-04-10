@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <script>
-            function fn1() {
-                let a = 5;
-                fn2(a);
-                return a;
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sort(ary) {
+
+            const {
+                length
+            } = ary;
+            let minIndex, temp;
+            for (let i = 0; i < length; i++) {
+                minIndex = i;
+                for (let j = i + 1; j < length; j++) {
+                    if (ary[j] < ary[minIndex]) {
+                        minIndex = j
+                    }
+                }
+
+                temp = ary[i];
+                ary[i] = ary[minIndex]
+                ary[minIndex] = temp;
+
             }
-            function fn2(a) {
-                setTimeout(function time(){
-                    console.log(a)
-                },2000)
-                fn3();
 
-                return a;
-            }
+            return ary
 
-            function fn3() {
-                setTimeout(function time1(){
-                    console.log(1123)
-                },3000)
-            }
+        }
 
-            fn1();
 
-            \u{26A0}
-        </script>
-    </body>
+        let ary = sort([22, 52, 2, 8, 3, 21, 78, 546, 2, 4, 76, 8, 9])
+        console.log(ary)
+    </script>
+</body>
+
 </html>
