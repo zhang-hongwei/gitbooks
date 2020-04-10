@@ -62,5 +62,6 @@
 -   [算法](./pages/algorithm/index.md)
 -   [异步](./pages/async/index.md)
 -   [模块化](./pages/module/index.md)
+-   [HTTP](./pages/http/index.md)
 
 <!-- -   [简历](./pages/zhanghongwei.md) -->
